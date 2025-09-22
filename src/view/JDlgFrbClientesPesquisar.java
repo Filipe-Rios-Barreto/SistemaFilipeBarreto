@@ -19,6 +19,7 @@ public class JDlgFrbClientesPesquisar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisa de Clientes");
     }
     /**
      * This method is called from within the constructor to initialize the form.

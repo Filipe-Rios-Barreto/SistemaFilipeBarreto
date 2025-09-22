@@ -19,6 +19,7 @@ public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisa de Produtos");
     }
 
     /**

@@ -20,6 +20,7 @@ public class JDlgFrbVendedorPesquisar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisa de Vendedores");
     }
 
     /**
