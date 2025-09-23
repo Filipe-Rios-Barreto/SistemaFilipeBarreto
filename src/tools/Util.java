@@ -43,9 +43,13 @@ public class Util {
         JOptionPane.showMessageDialog(null, cad);
     }
     
-    public static boolean perguntar (String cad) {
-    int Opcao = JOptionPane.showConfirmDialog(null, cad, cad, JOptionPane.YES_NO_OPTION);
-    return true;
+    public static boolean perguntar(String cad){
+        int perguntar = JOptionPane.showConfirmDialog(null, cad, cad, JOptionPane.YES_NO_OPTION);
+            if(perguntar == JOptionPane.YES_OPTION){
+                return true;
+            }else{
+                return false;
+            }
     }
     
     public static int strToInt(String cad) {

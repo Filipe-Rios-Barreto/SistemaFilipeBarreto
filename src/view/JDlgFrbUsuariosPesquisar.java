@@ -4,16 +4,13 @@
  */
 package view;
 
-import java.util.List;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author u42977829873
  */
 public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     /**
-     * Creates new form JDlgUsuariosPesquisar
+     * Creates new form JDlgFrbUsuariosPesquisar
      */
     public JDlgFrbUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -30,9 +27,9 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPanelFrb_Painel = new javax.swing.JScrollPane();
+        jScrollPanelFrbPainel = new javax.swing.JScrollPane();
         jTblFrb_Tabela = new javax.swing.JTable();
-        jBtnFrb_OK = new javax.swing.JButton();
+        jBtnFrbOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,12 +44,12 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPanelFrb_Painel.setViewportView(jTblFrb_Tabela);
+        jScrollPanelFrbPainel.setViewportView(jTblFrb_Tabela);
 
-        jBtnFrb_OK.setText("Ok");
-        jBtnFrb_OK.addActionListener(new java.awt.event.ActionListener() {
+        jBtnFrbOK.setText("Ok");
+        jBtnFrbOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnFrb_OKActionPerformed(evt);
+                jBtnFrbOKActionPerformed(evt);
             }
         });
 
@@ -63,25 +60,25 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBtnFrb_OK)
-                    .addComponent(jScrollPanelFrb_Painel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jBtnFrbOK)
+                    .addComponent(jScrollPanelFrbPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPanelFrb_Painel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanelFrbPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnFrb_OK)
+                .addComponent(jBtnFrbOK)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnFrb_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrb_OKActionPerformed
+    private void jBtnFrbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOKActionPerformed
         // TODO add your handling code here:
          setVisible(false);
-    }//GEN-LAST:event_jBtnFrb_OKActionPerformed
+    }//GEN-LAST:event_jBtnFrbOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,8 +138,8 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnFrb_OK;
-    private javax.swing.JScrollPane jScrollPanelFrb_Painel;
+    private javax.swing.JButton jBtnFrbOK;
+    private javax.swing.JScrollPane jScrollPanelFrbPainel;
     private javax.swing.JTable jTblFrb_Tabela;
     // End of variables declaration//GEN-END:variables
 }

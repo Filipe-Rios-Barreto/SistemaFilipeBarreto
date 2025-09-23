@@ -18,8 +18,8 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtCodigo, jTxtSabor, jTxtTamanho, jTxtEstoque,
-        jTxtDescricao, jTxtPreco, jFmtDataValidade, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+        jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnCancelar);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,19 +27,19 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTxtCodigo = new javax.swing.JTextField();
+        jTxtFrbCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTxtSabor = new javax.swing.JTextField();
+        jTxtFrbSabor = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTxtDescricao = new javax.swing.JTextField();
+        jTxtFrbDescricao = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTxtPreco = new javax.swing.JTextField();
-        jTxtTamanho = new javax.swing.JTextField();
-        jTxtEstoque = new javax.swing.JTextField();
+        jTxtFrbPreco = new javax.swing.JTextField();
+        jTxtFrbTamanho = new javax.swing.JTextField();
+        jTxtFrbEstoque = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jFmtDataValidade = new javax.swing.JFormattedTextField();
+        jFmtFrbDataValidade = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jBtnCancelar = new javax.swing.JButton();
         jBtnPesquisar = new javax.swing.JButton();
@@ -54,9 +54,9 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
 
         jLabel2.setText("Sabor");
 
-        jTxtSabor.addActionListener(new java.awt.event.ActionListener() {
+        jTxtFrbSabor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtSaborActionPerformed(evt);
+                jTxtFrbSaborActionPerformed(evt);
             }
         });
 
@@ -66,9 +66,9 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
 
         jLabel5.setText("Preço");
 
-        jTxtTamanho.addActionListener(new java.awt.event.ActionListener() {
+        jTxtFrbTamanho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtTamanhoActionPerformed(evt);
+                jTxtFrbTamanhoActionPerformed(evt);
             }
         });
 
@@ -137,24 +137,24 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFrbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTxtSabor)))
+                                    .addComponent(jTxtFrbSabor)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTxtDescricao))
+                            .addComponent(jTxtFrbDescricao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(jTxtPreco))
-                            .addComponent(jFmtDataValidade)
+                                .addComponent(jTxtFrbPreco))
+                            .addComponent(jFmtFrbDataValidade)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -162,13 +162,13 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel4)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTxtTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTxtFrbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(2, 2, 2)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel7)
-                                            .addComponent(jTxtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jTxtFrbEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addComponent(jLabel9)))
@@ -199,25 +199,25 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtSabor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtFrbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtFrbSabor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtFrbTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtFrbEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtDescricao))
+                        .addComponent(jTxtFrbDescricao))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTxtFrbPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFmtDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFmtFrbDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnIncluir)
@@ -236,9 +236,9 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtFrb_CodigoActionPerformed
 
-    private void jTxtSaborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtSaborActionPerformed
+    private void jTxtFrbSaborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrbSaborActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtSaborActionPerformed
+    }//GEN-LAST:event_jTxtFrbSaborActionPerformed
 
     private void jTxtFrb_DescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrb_DescricaoActionPerformed
         // TODO add your handling code here:
@@ -248,9 +248,9 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtFrb_PrecoActionPerformed
 
-    private void jTxtTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTamanhoActionPerformed
+    private void jTxtFrbTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrbTamanhoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtTamanhoActionPerformed
+    }//GEN-LAST:event_jTxtFrbTamanhoActionPerformed
 
     private void jTxtFrb_EstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrb_EstoqueActionPerformed
         // TODO add your handling code here:
@@ -262,8 +262,8 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtCodigo, jTxtSabor, jTxtTamanho, jTxtEstoque,
-            jTxtDescricao, jTxtPreco, jFmtDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -275,26 +275,33 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true,jTxtCodigo, jTxtSabor, jTxtTamanho, jTxtEstoque,
-            jTxtDescricao, jTxtPreco, jFmtDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        Util.habilitar(true,jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtCodigo, jTxtSabor, jTxtTamanho, jTxtEstoque,
-            jTxtDescricao, jTxtPreco, jFmtDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        Util.habilitar(true, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+       if(Util.perguntar("Deseja Excluir?")){
+            Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
+            Util.mensagem("Exluido com sucesso!");
+        } else {
+            Util.mensagem("Exclusão cancelada!");
+        }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtCodigo, jTxtSabor, jTxtTamanho, jTxtEstoque,
-            jTxtDescricao, jTxtPreco, jFmtDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -410,7 +417,7 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JFormattedTextField jFmtDataValidade;
+    private javax.swing.JFormattedTextField jFmtFrbDataValidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -419,11 +426,11 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtDescricao;
-    private javax.swing.JTextField jTxtEstoque;
-    private javax.swing.JTextField jTxtPreco;
-    private javax.swing.JTextField jTxtSabor;
-    private javax.swing.JTextField jTxtTamanho;
+    private javax.swing.JTextField jTxtFrbCodigo;
+    private javax.swing.JTextField jTxtFrbDescricao;
+    private javax.swing.JTextField jTxtFrbEstoque;
+    private javax.swing.JTextField jTxtFrbPreco;
+    private javax.swing.JTextField jTxtFrbSabor;
+    private javax.swing.JTextField jTxtFrbTamanho;
     // End of variables declaration//GEN-END:variables
 }

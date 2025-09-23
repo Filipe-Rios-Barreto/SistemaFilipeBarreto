@@ -26,8 +26,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jBtnFrb_OK" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPanelFrb_Painel" min="-2" pref="353" max="-2" attributes="0"/>
+                  <Component id="jBtnFrbOK" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPanelFrbPainel" min="-2" pref="353" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -35,16 +35,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPanelFrb_Painel" min="-2" pref="260" max="-2" attributes="0"/>
+              <Component id="jScrollPanelFrbPainel" min="-2" pref="260" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jBtnFrb_OK" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnFrbOK" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPanelFrb_Painel">
+    <Container class="javax.swing.JScrollPane" name="jScrollPanelFrbPainel">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -65,12 +65,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jBtnFrb_OK">
+    <Component class="javax.swing.JButton" name="jBtnFrbOK">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ok"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnFrb_OKActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnFrbOKActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
