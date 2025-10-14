@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.FrbUsuarios;
+import bean.FrbVendaprodutos;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -14,7 +14,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author u42977829873
  */
-public class FrbUsuariosDAO extends AbstractDAO {
+public class FrbVendaprodutosDAO extends AbstractDAO {
 
     @Override
     public void insert(Object object) {
@@ -44,8 +44,8 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(FrbUsuarios.class);
-        criteria.add(Restrictions.eq("frb_idUsuario", codigo) );
+        Criteria criteria = session.createCriteria(FrbVendaprodutos.class);
+        criteria.add(Restrictions.eq("frb_idVendaProduto", codigo) );
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -54,14 +54,14 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public Object listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(FrbUsuarios.class);
+        Criteria criteria = session.createCriteria(FrbVendaprodutos.class);
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
     public static void main(String[] args) {
-        FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
-        frbUsuariosDAO.listAll();
+        FrbVendaprodutosDAO frbVendaprodutosDAO = new FrbVendaprodutosDAO();
+        frbVendaprodutosDAO.listAll();
         System.out.println("deu certo");
     }
 }
