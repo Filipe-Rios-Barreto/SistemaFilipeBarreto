@@ -56,7 +56,7 @@ public class Util {
         return Integer.parseInt(cad);
     }
     
-    public static String intToStr(String num) {
+    public static String intToStr(int num) {
         return String.valueOf(num);
     }
     

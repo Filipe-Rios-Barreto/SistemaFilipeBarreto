@@ -5,6 +5,8 @@
  */
 package view;
 
+import dao.FrbUsuariosDAO;
+import bean.FrbUsuarios;
 import javax.swing.JOptionPane;
 import tools.Util;
 
@@ -15,7 +17,7 @@ import tools.Util;
  */
 public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
-
+    private boolean incluir;
 
 
     public JDlgFrbUsuarios(java.awt.Frame parent, boolean modal) {
@@ -30,7 +32,39 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         
         
     }
-    
+                public FrbUsuarios viewBean(){
+        FrbUsuarios frbUsuarios = new FrbUsuarios();
+        int codigo = Util.strToInt(jTxtFrbCodigo.getText());
+        frbUsuarios.setFrbIdUsuario(codigo);
+        frbUsuarios.setFrbNome(jTxtFrbNome.getText());
+        frbUsuarios.setFrbApelido(jTxtFrbApelido.getText());
+        frbUsuarios.setFrbCpf(jFmtFrbCpf.getText());
+        frbUsuarios.setFrbDataNascimento(Util.strToDate(jFmtFrbDataDeNascimento.getText()));
+        frbUsuarios.setFrbSenha(jPwfFrbSenha.getText());
+        frbUsuarios.setFrbNivel(jCboFrbNivel.getSelectedIndex());
+        if(jChbFrbAtivo.isSelected() == true){
+            frbUsuarios.setFrbAtivo("S");}
+        else{
+            frbUsuarios.setFrbAtivo("N");
+        };
+        return frbUsuarios;
+}
+         public FrbUsuarios beanView(FrbUsuarios frbUsuarios){
+                 jTxtFrbCodigo.setText(Util.intToStr(frbUsuarios.getFrbIdUsuario()));
+                 jTxtFrbNome.setText(frbUsuarios.getFrbNome());
+                 jTxtFrbApelido.setText(frbUsuarios.getFrbApelido());
+                 jFmtFrbCpf.setText(frbUsuarios.getFrbCpf());
+                 jFmtFrbDataDeNascimento.setText(Util.dateToStr(frbUsuarios.getFrbDataNascimento()));
+                 jPwfFrbSenha.setText(frbUsuarios.getFrbSenha());
+                 jCboFrbNivel.setSelectedIndex(frbUsuarios.getFrbNivel());
+                 if(frbUsuarios.getFrbAtivo().equals("S")==true){
+                 jChbFrbAtivo.setSelected(true);}
+                 else{
+                 jChbFrbAtivo.setSelected(false);
+                         }
+                 return frbUsuarios;
+
+}
 
 
     /**
@@ -267,27 +301,35 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-                Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-            jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-            jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-                Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        
+            Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
+        jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+        jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
+            Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        jTxtFrbNome.grabFocus();
+        incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-                jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
-            Util.mensagem("Exluido com sucesso!");
-        } else {
-            Util.mensagem("Exclusão cancelada!");
+        if (Util.perguntar("Deseja excluir o registro?")==true){
+         FrbUsuariosDAO usuariosDAO = new FrbUsuariosDAO();
+         usuariosDAO.delete(viewBean());
         }
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
+                jFmtFrbDataDeNascimento, jPwfFrbSenha,  jCboFrbNivel, jChbFrbAtivo);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+                FrbUsuariosDAO usuariosDAO = new FrbUsuariosDAO();
+        FrbUsuarios frbUsuarios = viewBean();
+        if (incluir == true){
+        usuariosDAO.insert(viewBean());
+        }else{
+        usuariosDAO.update(viewBean());
+        }
+        usuariosDAO.insert(frbUsuarios);
          Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
             jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
             jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package view;
+import bean.FrbUsuarios;
+import dao.FrbUsuariosDAO;
 import tools.Util;
 /**
  *
@@ -23,6 +25,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
         jBtnConfirmar, jBtnCancelar);
     }
+
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -422,6 +425,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
