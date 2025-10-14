@@ -312,8 +312,8 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         if (Util.perguntar("Deseja excluir o registro?")==true){
-         FrbUsuariosDAO usuariosDAO = new FrbUsuariosDAO();
-         usuariosDAO.delete(viewBean());
+         FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
+         frbUsuariosDAO.delete(viewBean());
         }
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
                 jFmtFrbDataDeNascimento, jPwfFrbSenha,  jCboFrbNivel, jChbFrbAtivo);
@@ -322,14 +322,14 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-                FrbUsuariosDAO usuariosDAO = new FrbUsuariosDAO();
+                FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
         FrbUsuarios frbUsuarios = viewBean();
         if (incluir == true){
-        usuariosDAO.insert(viewBean());
+        frbUsuariosDAO.insert(viewBean());
         }else{
-        usuariosDAO.update(viewBean());
+        frbUsuariosDAO.update(viewBean());
         }
-        usuariosDAO.insert(frbUsuarios);
+        frbUsuariosDAO.insert(frbUsuarios);
          Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
             jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
             jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
@@ -341,9 +341,9 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
-        JDlgFrbUsuariosPesquisar jDlgUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null,true);
-        jDlgUsuariosPesquisar.setTelaPai(this);
-        jDlgUsuariosPesquisar.setVisible(true);
+        JDlgFrbUsuariosPesquisar jDlgFrbUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null,true);
+        jDlgFrbUsuariosPesquisar.setTelaPai(this);
+        jDlgFrbUsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

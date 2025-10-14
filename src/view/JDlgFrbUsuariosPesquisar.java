@@ -4,20 +4,37 @@
  */
 package view;
 
+import bean.FrbUsuarios;
+import dao.FrbUsuariosDAO;
+import java.util.List;
+
 /**
  *
- * @author u42977829873
+ * @author 42977829873
  */
 public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
+
     /**
-     * Creates new form JDlgFrbUsuariosPesquisar
+     * Creates new form JDlgUsuariosPesquisar
      */
+    private JDlgFrbUsuarios jDlgFrbUsuarios;
+    FrbControllerUsuarios frbControllerUsuarios;
+    
     public JDlgFrbUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Pesquisa de Usuários");
+        setTitle("Pesquisar Usuários");
+        frbControllerUsuarios = new FrbControllerUsuarios();
+        FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
+        List lista = (List) frbUsuariosDAO.listAll();
+        frbControllerUsuarios.setList(lista);
+        jTblFrbTabela.setModel(frbControllerUsuarios);
     }
+
+    public void setTelaPai( JDlgFrbUsuarios jDlgFrbUsuarios) {
+    this.jDlgFrbUsuarios = jDlgFrbUsuarios;}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,12 +45,12 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPanelFrbPainel = new javax.swing.JScrollPane();
-        jTblFrb_Tabela = new javax.swing.JTable();
+        jTblFrbTabela = new javax.swing.JTable();
         jBtnFrbOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTblFrb_Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        jTblFrbTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -44,7 +61,7 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPanelFrbPainel.setViewportView(jTblFrb_Tabela);
+        jScrollPanelFrbPainel.setViewportView(jTblFrbTabela);
 
         jBtnFrbOK.setText("Ok");
         jBtnFrbOK.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +94,9 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnFrbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOKActionPerformed
         // TODO add your handling code here:
-         setVisible(false);
+        FrbUsuarios frbUsuarios =  frbControllerUsuarios.getBean( jTblFrbTabela.getSelectedRow() );
+        jDlgFrbUsuarios.beanView(frbUsuarios);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnFrbOKActionPerformed
 
     /**
@@ -107,21 +126,6 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -140,6 +144,6 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnFrbOK;
     private javax.swing.JScrollPane jScrollPanelFrbPainel;
-    private javax.swing.JTable jTblFrb_Tabela;
+    private javax.swing.JTable jTblFrbTabela;
     // End of variables declaration//GEN-END:variables
 }

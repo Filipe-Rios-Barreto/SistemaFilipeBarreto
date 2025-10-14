@@ -3,13 +3,11 @@ package bean;
 
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,7 +38,6 @@ public class FrbClientes  implements java.io.Serializable {
      private String frbCelular;
      private String frbSaborFavorito;
      private String frbAtivo;
-     private Set frbVendas = new HashSet(0);
 
     public FrbClientes() {
     }
@@ -61,7 +58,7 @@ public class FrbClientes  implements java.io.Serializable {
         this.frbCelular = frbCelular;
         this.frbSaborFavorito = frbSaborFavorito;
     }
-    public FrbClientes(int frbIdCliente, String frbNome, String frbCpf, String frbRg, String frbSexo, Date frbDataNascimento, String frbEmail, String frbCep, String frbEndereco, String frbBairro, String frbCidade, String frbEstado, String frbTelefoneCasa, String frbCelular, String frbSaborFavorito, String frbAtivo, Set frbVendas) {
+    public FrbClientes(int frbIdCliente, String frbNome, String frbCpf, String frbRg, String frbSexo, Date frbDataNascimento, String frbEmail, String frbCep, String frbEndereco, String frbBairro, String frbCidade, String frbEstado, String frbTelefoneCasa, String frbCelular, String frbSaborFavorito, String frbAtivo) {
        this.frbIdCliente = frbIdCliente;
        this.frbNome = frbNome;
        this.frbCpf = frbCpf;
@@ -78,7 +75,6 @@ public class FrbClientes  implements java.io.Serializable {
        this.frbCelular = frbCelular;
        this.frbSaborFavorito = frbSaborFavorito;
        this.frbAtivo = frbAtivo;
-       this.frbVendas = frbVendas;
     }
    
      @Id 
@@ -242,18 +238,6 @@ public class FrbClientes  implements java.io.Serializable {
     public void setFrbAtivo(String frbAtivo) {
         this.frbAtivo = frbAtivo;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="frbClientes")
-    public Set getFrbVendas() {
-        return this.frbVendas;
-    }
-    
-    public void setFrbVendas(Set frbVendas) {
-        this.frbVendas = frbVendas;
-    }
-
-
-
 
 }
 

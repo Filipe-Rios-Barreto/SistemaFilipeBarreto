@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package view;
+import bean.FrbClientes;
 import bean.FrbUsuarios;
+import dao.FrbClientesDAO;
 import dao.FrbUsuariosDAO;
 import tools.Util;
 /**
@@ -11,6 +13,8 @@ import tools.Util;
  * @author a
  */
 public class JDlgFrbClientes extends javax.swing.JDialog {
+
+    private boolean incluir;
 
     /**
      * Creates new form JDlgClientes
@@ -24,8 +28,48 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
         jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
         jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnAlterar);
     }
+        public FrbClientes viewBean(){
+        FrbClientes frbClientes = new FrbClientes();
+        int codigo = Util.strToInt(jTxtFrbCodigo.getText());
+        frbClientes.setFrbIdCliente(codigo);
+        frbClientes.setFrbNome(jTxtFrbNome.getText());
+        frbClientes.setFrbCpf(jFmtFrbCpf.getText());
+        frbClientes.setFrbDataNascimento(Util.strToDate(jFmtFrbDataNascimento.getText()));
+        frbClientes.setFrbSexo(jTxtFrbSexo.getText());
+        frbClientes.setFrbEmail(jTxtFrbEmail.getText());
+        frbClientes.setFrbRg(jFmtFrbRg.getText());
+        frbClientes.setFrbEstado(jTxtFrbEstado.getText());
+        frbClientes.setFrbCep(jFmtFrbCep.getText());
+        frbClientes.setFrbEndereco(jTxtFrbEndereco.getText());
+        frbClientes.setFrbBairro(jTxtFrbBairro.getText());
+        frbClientes.setFrbCidade(jTxtFrbCidade.getText());
+        frbClientes.setFrbTelefoneCasa(jFmtFrbTelefoneCasa.getText());
+        frbClientes.setFrbCelular(jFmtFrbCelular.getText());
+        frbClientes.setFrbSaborFavorito(jTxtFrbSaborFavorito.getText());
 
+        return frbClientes;
+}
+        public FrbClientes beanView(FrbClientes frbClientes) {
+        jTxtFrbCodigo.setText(Util.intToStr(frbClientes.getFrbIdCliente()));
+        jTxtFrbNome.setText(frbClientes.getFrbNome());
+        jFmtFrbCpf.setText(frbClientes.getFrbCpf());
+        jFmtFrbDataNascimento.setText(Util.dateToStr(frbClientes.getFrbDataNascimento()));
+        jTxtFrbSexo.setText(frbClientes.getFrbSexo());
+        jTxtFrbEmail.setText(frbClientes.getFrbEmail());
+        jFmtFrbRg.setText(frbClientes.getFrbRg());
+        jTxtFrbEstado.setText(frbClientes.getFrbEstado());
+        jFmtFrbCep.setText(frbClientes.getFrbCep());
+        jTxtFrbEndereco.setText(frbClientes.getFrbEndereco());
+        jTxtFrbBairro.setText(frbClientes.getFrbBairro());
+        jTxtFrbCidade.setText(frbClientes.getFrbCidade());
+        jFmtFrbTelefoneCasa.setText(frbClientes.getFrbTelefoneCasa());
+        jFmtFrbCelular.setText(frbClientes.getFrbCelular());
+        jTxtFrbSaborFavorito.setText(frbClientes.getFrbSaborFavorito());
+
+        return frbClientes;
+}
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -387,8 +431,9 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        JDlgFrbClientesPesquisar jDlgClientesPesquisar = new JDlgFrbClientesPesquisar(null,true);
-        jDlgClientesPesquisar.setVisible(true);
+        JDlgFrbClientesPesquisar jDlgFrbClientesPesquisar = new JDlgFrbClientesPesquisar(null,true);
+        jDlgFrbClientesPesquisar.setTelaPai(this);
+        jDlgFrbClientesPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
@@ -408,24 +453,33 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        jTxtFrbNome.grabFocus();
+        incluir = false;
 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.perguntar("Deseja Excluir?")){
+        if (Util.perguntar("Deseja excluir o registro?")==true){
+         FrbClientesDAO frbClientesDAO = new FrbClientesDAO();
+         frbClientesDAO.delete(viewBean());
+        }
             Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito);
-            Util.mensagem("Exluido com sucesso!");
-        } else {
-            Util.mensagem("Exclusão cancelada!");
-        }
+
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        
+        FrbClientesDAO frbClientesDAO = new FrbClientesDAO();
+        FrbClientes frbClientes = viewBean();
+        if (incluir == true){
+        frbClientesDAO.insert(viewBean());
+        }else{
+        frbClientesDAO.update(viewBean());
+        }
+        frbClientesDAO.insert(frbClientes);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
