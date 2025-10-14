@@ -2,9 +2,8 @@ package bean;
 // Generated Oct 13, 2025 10:55:48 PM by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,16 +30,15 @@ public class FrbVenda  implements java.io.Serializable {
      private FrbClientes frbClientes;
      private FrbVendedor frbVendedor;
      private Date frbDataVenda;
-     private BigDecimal frbValorTotal;
+     private double frbValorTotal;
      private String frbStatusVenda;
      private String frbFormaPagamento;
-     private Set frbVendaprodutoses = new HashSet(0);
 
     public FrbVenda() {
     }
 
 	
-    public FrbVenda(int frbIdVenda, FrbClientes frbClientes, FrbVendedor frbVendedor, Date frbDataVenda, BigDecimal frbValorTotal, String frbStatusVenda, String frbFormaPagamento) {
+    public FrbVenda(int frbIdVenda, FrbClientes frbClientes, FrbVendedor frbVendedor, Date frbDataVenda, double frbValorTotal, String frbStatusVenda, String frbFormaPagamento) {
         this.frbIdVenda = frbIdVenda;
         this.frbClientes = frbClientes;
         this.frbVendedor = frbVendedor;
@@ -49,17 +47,7 @@ public class FrbVenda  implements java.io.Serializable {
         this.frbStatusVenda = frbStatusVenda;
         this.frbFormaPagamento = frbFormaPagamento;
     }
-    public FrbVenda(int frbIdVenda, FrbClientes frbClientes, FrbVendedor frbVendedor, Date frbDataVenda, BigDecimal frbValorTotal, String frbStatusVenda, String frbFormaPagamento, Set frbVendaprodutoses) {
-       this.frbIdVenda = frbIdVenda;
-       this.frbClientes = frbClientes;
-       this.frbVendedor = frbVendedor;
-       this.frbDataVenda = frbDataVenda;
-       this.frbValorTotal = frbValorTotal;
-       this.frbStatusVenda = frbStatusVenda;
-       this.frbFormaPagamento = frbFormaPagamento;
-       this.frbVendaprodutoses = frbVendaprodutoses;
-    }
-   
+
      @Id 
 
     
@@ -104,11 +92,11 @@ public class FrbVenda  implements java.io.Serializable {
 
     
     @Column(name="frb_valorTotal", nullable=false, precision=10)
-    public BigDecimal getFrbValorTotal() {
+    public double getFrbValorTotal() {
         return this.frbValorTotal;
     }
     
-    public void setFrbValorTotal(BigDecimal frbValorTotal) {
+    public void setFrbValorTotal(double frbValorTotal) {
         this.frbValorTotal = frbValorTotal;
     }
 
@@ -131,18 +119,6 @@ public class FrbVenda  implements java.io.Serializable {
     public void setFrbFormaPagamento(String frbFormaPagamento) {
         this.frbFormaPagamento = frbFormaPagamento;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="frbVenda")
-    public Set getFrbVendaprodutoses() {
-        return this.frbVendaprodutoses;
-    }
-    
-    public void setFrbVendaprodutoses(Set frbVendaprodutoses) {
-        this.frbVendaprodutoses = frbVendaprodutoses;
-    }
-
-
-
 
 }
 

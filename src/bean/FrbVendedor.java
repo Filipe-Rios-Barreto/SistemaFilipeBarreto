@@ -1,10 +1,7 @@
 package bean;
 // Generated Oct 13, 2025 10:55:48 PM by Hibernate Tools 4.3.1
 
-
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,18 +24,17 @@ public class FrbVendedor  implements java.io.Serializable {
 
      private int frbIdVendedor;
      private String frbNome;
-     private BigDecimal frbComissao;
+     private double frbComissao;
      private Date frbDataContrato;
      private String frbCpf;
      private String frbTelefone;
      private String frbEmail;
-     private Set frbVendas = new HashSet(0);
 
     public FrbVendedor() {
     }
 
 	
-    public FrbVendedor(int frbIdVendedor, String frbNome, BigDecimal frbComissao, String frbCpf, String frbTelefone, String frbEmail) {
+    public FrbVendedor(int frbIdVendedor, String frbNome, double frbComissao, String frbCpf, String frbTelefone, String frbEmail) {
         this.frbIdVendedor = frbIdVendedor;
         this.frbNome = frbNome;
         this.frbComissao = frbComissao;
@@ -46,7 +42,7 @@ public class FrbVendedor  implements java.io.Serializable {
         this.frbTelefone = frbTelefone;
         this.frbEmail = frbEmail;
     }
-    public FrbVendedor(int frbIdVendedor, String frbNome, BigDecimal frbComissao, Date frbDataContrato, String frbCpf, String frbTelefone, String frbEmail, Set frbVendas) {
+    public FrbVendedor(int frbIdVendedor, String frbNome, double frbComissao, Date frbDataContrato, String frbCpf, String frbTelefone, String frbEmail, Set frbVendas) {
        this.frbIdVendedor = frbIdVendedor;
        this.frbNome = frbNome;
        this.frbComissao = frbComissao;
@@ -54,7 +50,6 @@ public class FrbVendedor  implements java.io.Serializable {
        this.frbCpf = frbCpf;
        this.frbTelefone = frbTelefone;
        this.frbEmail = frbEmail;
-       this.frbVendas = frbVendas;
     }
    
      @Id 
@@ -81,11 +76,11 @@ public class FrbVendedor  implements java.io.Serializable {
 
     
     @Column(name="frb_comissao", nullable=false, precision=10)
-    public BigDecimal getFrbComissao() {
+    public double getFrbComissao() {
         return this.frbComissao;
     }
     
-    public void setFrbComissao(BigDecimal frbComissao) {
+    public void setFrbComissao(double frbComissao) {
         this.frbComissao = frbComissao;
     }
 
@@ -128,18 +123,6 @@ public class FrbVendedor  implements java.io.Serializable {
     public void setFrbEmail(String frbEmail) {
         this.frbEmail = frbEmail;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="frbVendedor")
-    public Set getFrbVendas() {
-        return this.frbVendas;
-    }
-    
-    public void setFrbVendas(Set frbVendas) {
-        this.frbVendas = frbVendas;
-    }
-
-
-
 
 }
 

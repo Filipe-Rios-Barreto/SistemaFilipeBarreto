@@ -1,8 +1,6 @@
 package bean;
 // Generated Oct 13, 2025 10:55:48 PM by Hibernate Tools 4.3.1
 
-
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,13 +23,13 @@ public class FrbVendaprodutos  implements java.io.Serializable {
      private FrbProdutos frbProdutos;
      private FrbVenda frbVenda;
      private int frbQuantidade;
-     private BigDecimal frbPrecoUnitario;
-     private BigDecimal frbDescontoAplicado;
+     private double frbPrecoUnitario;
+     private double frbDescontoAplicado;
 
     public FrbVendaprodutos() {
     }
 
-    public FrbVendaprodutos(int frbIdVendaProduto, FrbProdutos frbProdutos, FrbVenda frbVenda, int frbQuantidade, BigDecimal frbPrecoUnitario, BigDecimal frbDescontoAplicado) {
+    public FrbVendaprodutos(int frbIdVendaProduto, FrbProdutos frbProdutos, FrbVenda frbVenda, int frbQuantidade, double frbPrecoUnitario, double frbDescontoAplicado) {
        this.frbIdVendaProduto = frbIdVendaProduto;
        this.frbProdutos = frbProdutos;
        this.frbVenda = frbVenda;
@@ -84,21 +82,21 @@ public class FrbVendaprodutos  implements java.io.Serializable {
 
     
     @Column(name="frb_precoUnitario", nullable=false, precision=10)
-    public BigDecimal getFrbPrecoUnitario() {
+    public double getFrbPrecoUnitario() {
         return this.frbPrecoUnitario;
     }
     
-    public void setFrbPrecoUnitario(BigDecimal frbPrecoUnitario) {
+    public void setFrbPrecoUnitario(double frbPrecoUnitario) {
         this.frbPrecoUnitario = frbPrecoUnitario;
     }
 
     
     @Column(name="frb_descontoAplicado", nullable=false, precision=10)
-    public BigDecimal getFrbDescontoAplicado() {
+    public double getFrbDescontoAplicado() {
         return this.frbDescontoAplicado;
     }
     
-    public void setFrbDescontoAplicado(BigDecimal frbDescontoAplicado) {
+    public void setFrbDescontoAplicado(double frbDescontoAplicado) {
         this.frbDescontoAplicado = frbDescontoAplicado;
     }
 
