@@ -342,6 +342,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
         JDlgFrbUsuariosPesquisar jDlgUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null,true);
+        jDlgUsuariosPesquisar.setTelaPai(this);
         jDlgUsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
