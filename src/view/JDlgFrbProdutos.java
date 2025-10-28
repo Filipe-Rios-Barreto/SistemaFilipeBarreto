@@ -4,6 +4,7 @@
  */
 package view;
 
+import bean.FrbProdutos;
 import tools.Util;
 /**
  *
@@ -21,6 +22,29 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
         jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnCancelar);
     }
+    public void beanView(FrbProdutos frbProdutos) {
+    jTxtFrbCodigo.setText(Util.intToStr(frbProdutos.getFrbIdProduto()));
+    jTxtFrbSabor.setText(frbProdutos.getFrbSabor());
+    jTxtFrbDescricao.setText(frbProdutos.getFrbDescricao());
+    jTxtFrbPreco.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
+    jTxtFrbEstoque.setText(Util.intToStr(frbProdutos.getFrbEstoque()));
+    jTxtFrbTamanho.setText(Util.intToStr(frbProdutos.getFrbTamanho()));
+    jFmtFrbDataValidade.setText(Util.dateToStr(frbProdutos.getFrbDataValidade()));
+}
+
+public FrbProdutos viewBean() {
+    FrbProdutos frbProdutos = new FrbProdutos();
+
+    frbProdutos.setFrbIdProduto(Util.strToInt(jTxtFrbCodigo.getText()));
+    frbProdutos.setFrbSabor(jTxtFrbSabor.getText());
+    frbProdutos.setFrbDescricao(jTxtFrbDescricao.getText());
+    frbProdutos.setFrbPreco(Util.strToDouble(jTxtFrbPreco.getText()));
+    frbProdutos.setFrbEstoque(Util.strToInt(jTxtFrbEstoque.getText()));
+    frbProdutos.setFrbTamanho(Util.strToInt(jTxtFrbTamanho.getText()));
+    frbProdutos.setFrbDataValidade(Util.strToDate(jFmtFrbDataValidade.getText()));
+
+    return frbProdutos;
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package view;
+import bean.FrbVendedor;
 import tools.Util;
 /**
  *
@@ -19,6 +20,30 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
             jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }
+    public void beanView(FrbVendedor frbVendedor) {
+    jTxtFrbCodigo.setText(Util.intToStr(frbVendedor.getFrbIdVendedor()));
+    jTxtFrbNome.setText(frbVendedor.getFrbNome());
+    jFmtFrbComissão.setText(Util.doubleToString(frbVendedor.getFrbComissao()));
+    jFmtFrbDataContrato.setText(Util.dateToStr(frbVendedor.getFrbDataContrato()));
+    jFmtFrbCpf.setText(frbVendedor.getFrbCpf());
+    jFmtFrbCelular.setText(frbVendedor.getFrbTelefone());
+    jTxtFrbEmail.setText(frbVendedor.getFrbEmail());
+}
+    public FrbVendedor viewBean() {
+    FrbVendedor frbVendedor = new FrbVendedor();
+
+    frbVendedor.setFrbIdVendedor(Util.strToInt(jTxtFrbCodigo.getText()));
+    frbVendedor.setFrbNome(jTxtFrbNome.getText());
+    frbVendedor.setFrbComissao(Util.strToDouble(jFmtFrbComissão.getText()));
+    frbVendedor.setFrbDataContrato(Util.strToDate(jFmtFrbDataContrato.getText()));
+    frbVendedor.setFrbCpf(jFmtFrbCpf.getText());
+    frbVendedor.setFrbTelefone(jFmtFrbCelular.getText());
+    frbVendedor.setFrbEmail(jTxtFrbEmail.getText());
+
+    return frbVendedor;
+}
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
