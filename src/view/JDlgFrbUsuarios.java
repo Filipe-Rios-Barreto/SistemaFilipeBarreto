@@ -10,7 +10,6 @@ import bean.FrbUsuarios;
 import javax.swing.JOptionPane;
 import tools.Util;
 
-
 /**
  *
  * @author u10916731103
@@ -19,20 +18,19 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
     private boolean incluir;
 
-
     public JDlgFrbUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Cadastro de Usuários");
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnAlterar);
-        
-        
+
     }
-                public FrbUsuarios viewBean(){
+
+    public FrbUsuarios viewBean() {
         FrbUsuarios frbUsuarios = new FrbUsuarios();
         int codigo = Util.strToInt(jTxtFrbCodigo.getText());
         frbUsuarios.setFrbIdUsuario(codigo);
@@ -42,30 +40,30 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         frbUsuarios.setFrbDataNascimento(Util.strToDate(jFmtFrbDataDeNascimento.getText()));
         frbUsuarios.setFrbSenha(jPwfFrbSenha.getText());
         frbUsuarios.setFrbNivel(jCboFrbNivel.getSelectedIndex());
-        if(jChbFrbAtivo.isSelected() == true){
-            frbUsuarios.setFrbAtivo("S");}
-        else{
+        if (jChbFrbAtivo.isSelected() == true) {
+            frbUsuarios.setFrbAtivo("S");
+        } else {
             frbUsuarios.setFrbAtivo("N");
         };
         return frbUsuarios;
-}
-         public FrbUsuarios beanView(FrbUsuarios frbUsuarios){
-                 jTxtFrbCodigo.setText(Util.intToStr(frbUsuarios.getFrbIdUsuario()));
-                 jTxtFrbNome.setText(frbUsuarios.getFrbNome());
-                 jTxtFrbApelido.setText(frbUsuarios.getFrbApelido());
-                 jFmtFrbCpf.setText(frbUsuarios.getFrbCpf());
-                 jFmtFrbDataDeNascimento.setText(Util.dateToStr(frbUsuarios.getFrbDataNascimento()));
-                 jPwfFrbSenha.setText(frbUsuarios.getFrbSenha());
-                 jCboFrbNivel.setSelectedIndex(frbUsuarios.getFrbNivel());
-                 if(frbUsuarios.getFrbAtivo().equals("S")==true){
-                 jChbFrbAtivo.setSelected(true);}
-                 else{
-                 jChbFrbAtivo.setSelected(false);
-                         }
-                 return frbUsuarios;
+    }
 
-}
+    public FrbUsuarios beanView(FrbUsuarios frbUsuarios) {
+        jTxtFrbCodigo.setText(Util.intToStr(frbUsuarios.getFrbIdUsuario()));
+        jTxtFrbNome.setText(frbUsuarios.getFrbNome());
+        jTxtFrbApelido.setText(frbUsuarios.getFrbApelido());
+        jFmtFrbCpf.setText(frbUsuarios.getFrbCpf());
+        jFmtFrbDataDeNascimento.setText(Util.dateToStr(frbUsuarios.getFrbDataNascimento()));
+        jPwfFrbSenha.setText(frbUsuarios.getFrbSenha());
+        jCboFrbNivel.setSelectedIndex(frbUsuarios.getFrbNivel());
+        if (frbUsuarios.getFrbAtivo().equals("S") == true) {
+            jChbFrbAtivo.setSelected(true);
+        } else {
+            jChbFrbAtivo.setSelected(false);
+        }
+        return frbUsuarios;
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,7 +119,19 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
 
         jLabel4.setText("CPF");
 
+        try {
+            jFmtFrbCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel5.setText("Data de Nascimento");
+
+        try {
+            jFmtFrbDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel6.setText("Senha");
 
@@ -293,66 +303,65 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-            jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-            jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-                Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        
+                jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+                jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-            Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-        jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-        jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-            Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
+                jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+                jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         jTxtFrbNome.grabFocus();
         incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if (Util.perguntar("Deseja excluir o registro?")==true){
-         FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
-         frbUsuariosDAO.delete(viewBean());
+        if (Util.perguntar("Deseja excluir o registro?") == true) {
+            FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
+            frbUsuariosDAO.delete(viewBean());
         }
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
-                jFmtFrbDataDeNascimento, jPwfFrbSenha,  jCboFrbNivel, jChbFrbAtivo);
+                jFmtFrbDataDeNascimento, jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-                FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
+        FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
         FrbUsuarios frbUsuarios = viewBean();
-        if (incluir == true){
-        frbUsuariosDAO.insert(viewBean());
-        }else{
-        frbUsuariosDAO.update(viewBean());
+        if (incluir == true) {
+            frbUsuariosDAO.insert(viewBean());
+        } else {
+            frbUsuariosDAO.update(viewBean());
         }
         frbUsuariosDAO.insert(frbUsuarios);
-         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-            jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-            jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-                Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        
+        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
+                jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+                jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
 
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
-        JDlgFrbUsuariosPesquisar jDlgFrbUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null,true);
+        JDlgFrbUsuariosPesquisar jDlgFrbUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null, true);
         jDlgFrbUsuariosPesquisar.setTelaPai(this);
         jDlgFrbUsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-            jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
-            jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-                Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        
+        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
+                jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+                jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jTxtFrbCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtFrbCodigoFocusLost

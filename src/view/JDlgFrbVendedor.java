@@ -89,6 +89,11 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
 
         jLabel3.setText("Número de Telefone");
 
+        try {
+            jFmtFrbDataContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtFrbDataContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtFrbDataContratoActionPerformed(evt);
@@ -101,12 +106,18 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
 
         jLabel7.setText("Comissão");
 
+        try {
+            jFmtFrbCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel8.setText("R$");
 
         jLabel9.setText("Email");
 
         try {
-            jFmtFrbCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########-##")));
+            jFmtFrbCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
