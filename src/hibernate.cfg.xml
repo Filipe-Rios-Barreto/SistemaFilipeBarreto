@@ -42,9 +42,9 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_filipe_barreto?serverTimezone=America/Sao_Paulo</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">12345678</property>
+    <property name="hibernate.connection.url">jdbc:mysql://10.7.0.51:33062/db_filipe_barreto?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">filipe_barreto</property>
+    <property name="hibernate.connection.password">filipe_barreto</property>
     <mapping class="bean.FrbClientes"/>
     <mapping class="bean.FrbVendaprodutos"/>
     <mapping class="bean.FrbProdutos"/>

@@ -19,7 +19,7 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
      */
     private JDlgFrbUsuarios jDlgFrbUsuarios;
     FrbControllerUsuarios frbControllerUsuarios;
-    
+
     public JDlgFrbUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -32,9 +32,10 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
         jTblFrbTabela.setModel(frbControllerUsuarios);
     }
 
-    public void setTelaPai( JDlgFrbUsuarios jDlgFrbUsuarios) {
-    this.jDlgFrbUsuarios = jDlgFrbUsuarios;}
-    
+    public void setTelaPai(JDlgFrbUsuarios jDlgFrbUsuarios) {
+        this.jDlgFrbUsuarios = jDlgFrbUsuarios;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,7 +95,7 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnFrbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOKActionPerformed
         // TODO add your handling code here:
-        FrbUsuarios frbUsuarios =  frbControllerUsuarios.getBean( jTblFrbTabela.getSelectedRow() );
+        FrbUsuarios frbUsuarios = frbControllerUsuarios.getBean(jTblFrbTabela.getSelectedRow());
         jDlgFrbUsuarios.beanView(frbUsuarios);
         this.setVisible(false);
     }//GEN-LAST:event_jBtnFrbOKActionPerformed
