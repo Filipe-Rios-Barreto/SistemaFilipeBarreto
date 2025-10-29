@@ -339,11 +339,12 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         } else {
             frbUsuariosDAO.update(viewBean());
         }
-        frbUsuariosDAO.insert(frbUsuarios);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
+                jFmtFrbDataDeNascimento, jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
 
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed

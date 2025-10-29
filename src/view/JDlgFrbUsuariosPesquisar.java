@@ -95,9 +95,17 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnFrbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOKActionPerformed
         // TODO add your handling code here:
-        FrbUsuarios frbUsuarios = frbControllerUsuarios.getBean(jTblFrbTabela.getSelectedRow());
-        jDlgFrbUsuarios.beanView(frbUsuarios);
-        this.setVisible(false);
+    int row = jTblFrbTabela.getSelectedRow();
+    if (row == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Selecione um usuário na tabela!", 
+            "Atenção", 
+            javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    FrbUsuarios frbUsuarios = frbControllerUsuarios.getBean(row);
+    jDlgFrbUsuarios.beanView(frbUsuarios);
+    this.setVisible(false);
     }//GEN-LAST:event_jBtnFrbOKActionPerformed
 
     /**

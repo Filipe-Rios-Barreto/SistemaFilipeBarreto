@@ -19,25 +19,23 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public void insert(Object object) {
         session.beginTransaction();
-        session.save(object);
+        session.save(object); // garante que é insert
         session.getTransaction().commit();
     }
+
 
     @Override
     public void update(Object object) {
         session.beginTransaction();
-        session.flush();
-        session.clear();
-        session.save(object);
+        session.merge(object); // merge é mais seguro que update
         session.getTransaction().commit();
     }
+
 
     @Override
     public void delete(Object object) {
         session.beginTransaction();
-        session.flush();
-        session.clear();
-        session.save(object);
+        session.delete(object);
         session.getTransaction().commit();
     }
 
@@ -45,7 +43,7 @@ public class FrbUsuariosDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbUsuarios.class);
-        criteria.add(Restrictions.eq("frb_idUsuario", codigo) );
+        criteria.add(Restrictions.eq("frbIdUsuario", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -59,9 +57,10 @@ public class FrbUsuariosDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
+
     public static void main(String[] args) {
         FrbUsuariosDAO frbUsuariosDAO = new FrbUsuariosDAO();
         frbUsuariosDAO.listAll();
-        System.out.println("deu certo");
+        System.out.println("Deu certo!");
     }
 }

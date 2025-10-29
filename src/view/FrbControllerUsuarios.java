@@ -21,9 +21,13 @@ public class FrbControllerUsuarios extends AbstractTableModel {
         this.lstUsuarios = lstUsuarios;
     }
     
-    public FrbUsuarios getBean(int rowIndex) {
-        return (FrbUsuarios) lstUsuarios.get(rowIndex);
+ public FrbUsuarios getBean(int rowIndex) {
+    if (rowIndex < 0 || rowIndex >= lstUsuarios.size()) {
+        return null;
     }
+    return (FrbUsuarios) lstUsuarios.get(rowIndex);
+}
+
 
     @Override
     public int getRowCount() {
