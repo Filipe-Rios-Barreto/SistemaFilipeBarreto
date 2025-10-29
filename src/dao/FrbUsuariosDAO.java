@@ -19,7 +19,7 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public void insert(Object object) {
         session.beginTransaction();
-        session.save(object); // garante que é insert
+        session.save(object);
         session.getTransaction().commit();
     }
 
@@ -27,7 +27,9 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public void update(Object object) {
         session.beginTransaction();
-        session.merge(object); // merge é mais seguro que update
+        session.flush();
+        session.clear();
+        session.update(object);
         session.getTransaction().commit();
     }
 

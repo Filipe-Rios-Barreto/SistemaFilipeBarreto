@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/view/FrbControllerUsuarios.java</file>
+            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/dao/FrbProdutosDAO.java</file>
+            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/dao/FrbVendaDAO.java</file>
+            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/view/JDlgFrbClientes.java</file>
+            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/dao/FrbClientesDAO.java</file>
             <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/dao/FrbUsuariosDAO.java</file>
-            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/view/JDlgFrbUsuariosPesquisar.java</file>
-            <file>file:/C:/Users/u42977829873/Documents/SistemaFilipeBarreto/src/view/JDlgFrbUsuarios.java</file>
         </group>
     </open-files>
 </project-private>

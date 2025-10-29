@@ -26,7 +26,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
         jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-        jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
+        jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
         jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnAlterar);
     }
@@ -46,6 +46,11 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         frbClientes.setFrbBairro(jTxtFrbBairro.getText());
         frbClientes.setFrbCidade(jTxtFrbCidade.getText());
         frbClientes.setFrbTelefoneCasa(jFmtFrbTelefoneCasa.getText());
+        if (jChbFrbAtivo.isSelected() == true) {
+            frbClientes.setFrbAtivo("S");
+        } else {
+            frbClientes.setFrbAtivo("N");
+        };
         frbClientes.setFrbCelular(jFmtFrbCelular.getText());
         frbClientes.setFrbSaborFavorito(jTxtFrbSaborFavorito.getText());
 
@@ -65,6 +70,11 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         jTxtFrbBairro.setText(frbClientes.getFrbBairro());
         jTxtFrbCidade.setText(frbClientes.getFrbCidade());
         jFmtFrbTelefoneCasa.setText(frbClientes.getFrbTelefoneCasa());
+        if (frbClientes.getFrbAtivo().equals("S") == true) {
+            jChbFrbAtivo.setSelected(true);
+        } else {
+            jChbFrbAtivo.setSelected(false);
+        }
         jFmtFrbCelular.setText(frbClientes.getFrbCelular());
         jTxtFrbSaborFavorito.setText(frbClientes.getFrbSaborFavorito());
 
@@ -116,6 +126,8 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         jBtnAlterar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
         jBtnConfirmar = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jChbFrbAtivo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -143,6 +155,11 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
 
         jLabel3.setText("Email");
 
+        try {
+            jFmtFrbCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtFrbCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtFrbCelularActionPerformed(evt);
@@ -253,6 +270,8 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
             }
         });
 
+        jLabel16.setText("Ativo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,7 +282,12 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(jFmtFrbTelefoneCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jFmtFrbTelefoneCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jChbFrbAtivo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel16)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFmtFrbCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,18 +431,22 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                     .addComponent(jLabel14)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFmtFrbTelefoneCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFmtFrbCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtFrbSaborFavorito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnIncluir)
-                    .addComponent(jBtnAlterar)
-                    .addComponent(jBtnExcluir)
-                    .addComponent(jBtnConfirmar)
-                    .addComponent(jBtnCancelar)
-                    .addComponent(jBtnPesquisar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jFmtFrbTelefoneCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFmtFrbCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFrbSaborFavorito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtnIncluir)
+                            .addComponent(jBtnAlterar)
+                            .addComponent(jBtnExcluir)
+                            .addComponent(jBtnConfirmar)
+                            .addComponent(jBtnCancelar)
+                            .addComponent(jBtnPesquisar)))
+                    .addComponent(jChbFrbAtivo)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -449,7 +477,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
 
@@ -466,7 +494,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular,
                 jTxtFrbSaborFavorito, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
 
@@ -476,7 +504,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         jTxtFrbNome.grabFocus();
@@ -492,7 +520,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         }
             Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito);
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito);
 
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -505,12 +533,14 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         }else{
         frbClientesDAO.update(viewBean());
         }
-        frbClientesDAO.insert(frbClientes);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
-                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jFmtFrbCelular, jTxtFrbSaborFavorito,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
+                jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito);
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -578,6 +608,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
+    private javax.swing.JCheckBox jChbFrbAtivo;
     private javax.swing.JFormattedTextField jFmtFrbCelular;
     private javax.swing.JFormattedTextField jFmtFrbCep;
     private javax.swing.JFormattedTextField jFmtFrbCpf;
@@ -591,6 +622,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

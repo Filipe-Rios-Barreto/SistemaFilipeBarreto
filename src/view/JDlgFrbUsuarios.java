@@ -306,7 +306,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
