@@ -24,9 +24,8 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         setTitle("Cadastro de Usuários");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
-                jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
+                jBtnAlterar, jBtnExcluir, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnAlterar);
 
     }
 
@@ -327,6 +326,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         }
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
                 jFmtFrbDataDeNascimento, jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
+        Util.habilitar(false, jBtnAlterar, jBtnExcluir);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
@@ -342,7 +342,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
                 jFmtFrbDataDeNascimento, jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
 
@@ -354,6 +354,8 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         JDlgFrbUsuariosPesquisar jDlgFrbUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null, true);
         jDlgFrbUsuariosPesquisar.setTelaPai(this);
         jDlgFrbUsuariosPesquisar.setVisible(true);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
@@ -361,7 +363,9 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jTxtFrbApelido, jFmtFrbCpf,
+                jFmtFrbDataDeNascimento, jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 

@@ -27,8 +27,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
         jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
         jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
-        jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnAlterar);
+        jBtnAlterar, jBtnConfirmar, jBtnCancelar, jBtnExcluir);
     }
         public FrbClientes viewBean(){
         FrbClientes frbClientes = new FrbClientes();
@@ -479,7 +478,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnConfirmar, jBtnAlterar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -488,6 +487,9 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         JDlgFrbClientesPesquisar jDlgFrbClientesPesquisar = new JDlgFrbClientesPesquisar(null,true);
         jDlgFrbClientesPesquisar.setTelaPai(this);
         jDlgFrbClientesPesquisar.setVisible(true);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(false, jBtnCancelar, jBtnIncluir);
+        
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
@@ -521,6 +523,8 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
             Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito);
+            Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+            Util.habilitar(false, jBtnCancelar, jBtnExcluir, jBtnAlterar);
 
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -537,7 +541,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnAlterar, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito);
