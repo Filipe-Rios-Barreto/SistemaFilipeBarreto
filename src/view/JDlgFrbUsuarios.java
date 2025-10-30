@@ -355,7 +355,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         jDlgFrbUsuariosPesquisar.setTelaPai(this);
         jDlgFrbUsuariosPesquisar.setVisible(true);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.habilitar(true, jBtnIncluir);
+        Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

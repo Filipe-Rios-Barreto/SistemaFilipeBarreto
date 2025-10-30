@@ -5,6 +5,7 @@
 package view;
 
 import bean.FrbProdutos;
+import dao.FrbProdutosDAO;
 import tools.Util;
 /**
  *
@@ -14,25 +15,18 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
     /**
      * Creates new form JDlgUsuarios
      */
+    
+    private boolean incluir;
+    
     public JDlgFrbProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
-        jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnCancelar);
+        jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
     }
-    public void beanView(FrbProdutos frbProdutos) {
-    jTxtFrbCodigo.setText(Util.intToStr(frbProdutos.getFrbIdProduto()));
-    jTxtFrbSabor.setText(frbProdutos.getFrbSabor());
-    jTxtFrbDescricao.setText(frbProdutos.getFrbDescricao());
-    jTxtFrbPreco.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
-    jTxtFrbEstoque.setText(Util.intToStr(frbProdutos.getFrbEstoque()));
-    jTxtFrbTamanho.setText(Util.intToStr(frbProdutos.getFrbTamanho()));
-    jFmtFrbDataValidade.setText(Util.dateToStr(frbProdutos.getFrbDataValidade()));
-}
-
-public FrbProdutos viewBean() {
+    public FrbProdutos viewBean() {
     FrbProdutos frbProdutos = new FrbProdutos();
 
     frbProdutos.setFrbIdProduto(Util.strToInt(jTxtFrbCodigo.getText()));
@@ -42,7 +36,17 @@ public FrbProdutos viewBean() {
     frbProdutos.setFrbEstoque(Util.strToInt(jTxtFrbEstoque.getText()));
     frbProdutos.setFrbTamanho(Util.strToInt(jTxtFrbTamanho.getText()));
     frbProdutos.setFrbDataValidade(Util.strToDate(jFmtFrbDataValidade.getText()));
-
+    return frbProdutos;
+}
+    
+    public FrbProdutos beanView(FrbProdutos frbProdutos) {
+    jTxtFrbCodigo.setText(Util.intToStr(frbProdutos.getFrbIdProduto()));
+    jTxtFrbSabor.setText(frbProdutos.getFrbSabor());
+    jTxtFrbDescricao.setText(frbProdutos.getFrbDescricao());
+    jTxtFrbPreco.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
+    jTxtFrbEstoque.setText(Util.intToStr(frbProdutos.getFrbEstoque()));
+    jTxtFrbTamanho.setText(Util.intToStr(frbProdutos.getFrbTamanho()));
+    jFmtFrbDataValidade.setText(Util.dateToStr(frbProdutos.getFrbDataValidade()));
     return frbProdutos;
 }
 
@@ -99,6 +103,17 @@ public FrbProdutos viewBean() {
         jLabel7.setText("Quantidade");
 
         jLabel9.setText("Validade");
+
+        try {
+            jFmtFrbDataValidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFmtFrbDataValidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtFrbDataValidadeActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("L");
 
@@ -287,14 +302,17 @@ public FrbProdutos viewBean() {
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
-            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        JDlgFrbProdutosPesquisar jDlgProdutosPesquisar = new JDlgFrbProdutosPesquisar(null,true);
-        jDlgProdutosPesquisar.setVisible(true);
+        JDlgFrbProdutosPesquisar jDlgFrbProdutosPesquisar = new JDlgFrbProdutosPesquisar(null,true);
+                jDlgFrbProdutosPesquisar.setTelaPai(this);
+        jDlgFrbProdutosPesquisar.setVisible(true);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
@@ -302,6 +320,7 @@ public FrbProdutos viewBean() {
         Util.habilitar(true,jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
@@ -309,25 +328,39 @@ public FrbProdutos viewBean() {
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-       if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+       if(Util.perguntar("Deseja Excluir?") == true){
+            FrbProdutosDAO frbProdutosDAO = new FrbProdutosDAO();
+            frbProdutosDAO.delete(viewBean());}
+        Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
-            Util.mensagem("Exluido com sucesso!");
-        } else {
-            Util.mensagem("Exclusão cancelada!");
-        }
+        Util.habilitar(false, jBtnAlterar, jBtnExcluir);
+         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        FrbProdutosDAO frbProdutosDAO = new FrbProdutosDAO();
+        FrbProdutos frbProdutos = viewBean();
+        if (incluir == true) {
+            frbProdutosDAO.insert(viewBean());
+        } else {
+            frbProdutosDAO.update(viewBean());
+        }
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
+
+    private void jFmtFrbDataValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtFrbDataValidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtFrbDataValidadeActionPerformed
 
     /**
      * @param args the command line arguments
