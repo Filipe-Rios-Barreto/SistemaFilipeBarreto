@@ -37,6 +37,8 @@ public class FrbUsuariosDAO extends AbstractDAO {
     @Override
     public void delete(Object object) {
         session.beginTransaction();
+        session.flush();
+        session.clear();
         session.delete(object);
         session.getTransaction().commit();
     }

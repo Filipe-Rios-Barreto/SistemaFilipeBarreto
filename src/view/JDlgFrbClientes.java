@@ -497,7 +497,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular,
                 jTxtFrbSaborFavorito, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed

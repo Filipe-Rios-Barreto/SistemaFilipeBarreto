@@ -4,7 +4,11 @@
  */
 package tools;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -65,11 +69,18 @@ public class Util {
     }
     
     public static Date strToDate(String cad) {
+        try {
+            SimpleDateFormat datafromato = new SimpleDateFormat("dd/MM/yyyy");
+            return datafromato.parse(cad);
+        } catch (ParseException ex) {
+            Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
     
     public static String dateToStr(Date data) {
-        return null;
+        SimpleDateFormat datafromato = new SimpleDateFormat("dd/MM/yyyy");
+        return datafromato.format(data);
     }
     
     public static String doubleToString(double num) {
