@@ -304,6 +304,8 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
+            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
@@ -353,9 +355,10 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         }
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
+        
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jFmtFrbDataValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtFrbDataValidadeActionPerformed

@@ -479,6 +479,9 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
                 jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
+                jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
+                jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
