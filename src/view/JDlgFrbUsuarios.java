@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package view;
-
 import dao.FrbUsuariosDAO;
 import bean.FrbUsuarios;
 import javax.swing.JOptionPane;
 import tools.Util;
-
 /**
  *
  * @author u10916731103
@@ -26,9 +24,7 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jBtnExcluir, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
-
     }
-
     public FrbUsuarios viewBean() {
         FrbUsuarios frbUsuarios = new FrbUsuarios();
         int codigo = Util.strToInt(jTxtFrbCodigo.getText());

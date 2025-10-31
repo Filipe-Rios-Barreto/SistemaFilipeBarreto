@@ -28,7 +28,7 @@ public class FrbVendedorDAO extends AbstractDAO {
         session.beginTransaction();
         session.flush();
         session.clear();
-        session.save(object);
+        session.update(object);
         session.getTransaction().commit();
     }
 
@@ -37,7 +37,7 @@ public class FrbVendedorDAO extends AbstractDAO {
         session.beginTransaction();
         session.flush();
         session.clear();
-        session.save(object);
+        session.delete(object);
         session.getTransaction().commit();
     }
 

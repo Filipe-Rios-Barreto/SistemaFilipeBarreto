@@ -4,12 +4,14 @@
  */
 package view;
 import bean.FrbVendedor;
+import dao.FrbVendedorDAO;
 import tools.Util;
 /**
  *
  * @author U42977829873
  */
 public class JDlgFrbVendedor extends javax.swing.JDialog {
+    private boolean incluir;
 
     public JDlgFrbVendedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -17,8 +19,7 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
         setTitle("Cadastro de Vendedores");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
-            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnExcluir, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
     }
     public void beanView(FrbVendedor frbVendedor) {
     jTxtFrbCodigo.setText(Util.intToStr(frbVendedor.getFrbIdVendedor()));
@@ -293,9 +294,9 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
-            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
@@ -303,40 +304,56 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
         Util.habilitar(true, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
             jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+        jTxtFrbNome.grabFocus();
+        incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.perguntar("Deseja Excluir?")){
+         if (Util.perguntar("Deseja excluir o registro?") == true) {
+            FrbVendedorDAO frbVendedorDAO = new FrbVendedorDAO();
+            frbVendedorDAO.delete(viewBean());
+        }
             Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
             jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão);
-            Util.mensagem("Exluido com sucesso!");
-        } else {
-            Util.mensagem("Exclusão cancelada!");
-        }
+            Util.habilitar(false, jBtnExcluir, jBtnConfirmar, jBtnCancelar, jBtnAlterar);
+            Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        FrbVendedorDAO frbVendedorDAO = new FrbVendedorDAO();
+        FrbVendedor frbVendedor = viewBean();
+        if (incluir == true) {
+            frbVendedorDAO.insert(viewBean());
+        } else {
+            frbVendedorDAO.update(viewBean());
+        }
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
-            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar, jBtnExcluir);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão);
+        
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
-            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar, jBtnExcluir);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
+            jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        JDlgFrbVendedorPesquisar jDlgVendedorPesquisar = new JDlgFrbVendedorPesquisar(null,true);
-        jDlgVendedorPesquisar.setVisible(true);
+        JDlgFrbVendedorPesquisar jDlgFrbVendedorPesquisar = new JDlgFrbVendedorPesquisar(null,true);
+        jDlgFrbVendedorPesquisar.setTelaPai(this);
+        jDlgFrbVendedorPesquisar.setVisible(true);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     /**
