@@ -54,10 +54,6 @@ public class FrbControllerVendas extends AbstractTableModel {
                     : "";
         } else if (columnIndex == 4) {
             return frbVendas.getFrbValorTotal();
-        } else if (columnIndex == 5) {
-            return frbVendas.getFrbStatusVenda();
-        } else if (columnIndex == 6) {
-            return frbVendas.getFrbFormaPagamento();
         }
 
         return "";
@@ -75,10 +71,6 @@ public class FrbControllerVendas extends AbstractTableModel {
             return "Data da Venda";
         } else if (columnIndex == 4) {
             return "Valor Total";
-        } else if (columnIndex == 5) {
-            return "Status do Pagamento";
-        } else if (columnIndex == 6) {
-            return "Forma de Pagamento";
         }
 
         return "";

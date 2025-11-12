@@ -100,26 +100,6 @@ public class FrbVenda  implements java.io.Serializable {
         this.frbValorTotal = frbValorTotal;
     }
 
-    
-    @Column(name="frb_statusVenda", nullable=false, length=1)
-    public String getFrbStatusVenda() {
-        return this.frbStatusVenda;
-    }
-    
-    public void setFrbStatusVenda(String frbStatusVenda) {
-        this.frbStatusVenda = frbStatusVenda;
-    }
-
-    
-    @Column(name="frb_formaPagamento", nullable=false, length=30)
-    public String getFrbFormaPagamento() {
-        return this.frbFormaPagamento;
-    }
-    
-    public void setFrbFormaPagamento(String frbFormaPagamento) {
-        this.frbFormaPagamento = frbFormaPagamento;
-    }
-
 }
 
 

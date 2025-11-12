@@ -5,8 +5,8 @@
  */
 package view;
 
-import bean.Produtos;
-import dao.ProdutosDAO;
+import bean.FrbProdutos;
+import dao.FrbProdutosDAO;
 import java.util.List;
 import tools.Util;
 
@@ -14,22 +14,22 @@ import tools.Util;
  *
  * @author u1845853
  */
-public class JDlgPedidosProdutos extends javax.swing.JDialog {
+public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
 
     /**
      * Creates new form JDlgPedidosProdutos
      */
-    public JDlgPedidosProdutos(java.awt.Frame parent, boolean modal) {
+    public JDlgFrbVendaProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Pedidos produtos");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
         jTxtQuantidade.setText("1");
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-        List listaVend = (List) produtosDAO.listAll();
+        FrbProdutosDAO frbProdutosDAO = new FrbProdutosDAO();
+        List listaVend = (List) frbProdutosDAO.listAll();
         for (Object object : listaVend) {
-            jCboProdutos.addItem((Produtos) object);
+            jCboProdutos.addItem((FrbProdutos) object);
         }
     }
 
@@ -43,7 +43,7 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jCboProdutos = new javax.swing.JComboBox<Produtos>();
+        jCboProdutos = new javax.swing.JComboBox<FrbProdutos>();
         jLabel2 = new javax.swing.JLabel();
         jTxtQuantidade = new javax.swing.JTextField();
         jTxtValorUnitario = new javax.swing.JTextField();
@@ -160,10 +160,10 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
 
     private void jCboProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboProdutosActionPerformed
         // TODO add your handling code here:
-        Produtos produtos = (Produtos) jCboProdutos.getSelectedItem();
-        jTxtValorUnitario.setText(Util.doubleToStr(produtos.getValorUnitario()));
+        FrbProdutos frbProdutos = (FrbProdutos) jCboProdutos.getSelectedItem();
+        jTxtValorUnitario.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
         int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToStr(quant*produtos.getValorUnitario()));
+        jTxtTotal.setText(Util.doubleToString(quant*frbProdutos.getFrbPreco()));
         
     
     }//GEN-LAST:event_jCboProdutosActionPerformed
@@ -185,21 +185,27 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidosProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgFrbVendaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidosProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgFrbVendaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidosProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgFrbVendaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidosProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgFrbVendaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlgPedidosProdutos dialog = new JDlgPedidosProdutos(new javax.swing.JFrame(), true);
+                JDlgFrbVendaProdutos dialog = new JDlgFrbVendaProdutos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -214,7 +220,7 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnOk;
-    private javax.swing.JComboBox<Produtos> jCboProdutos;
+    private javax.swing.JComboBox<FrbProdutos> jCboProdutos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

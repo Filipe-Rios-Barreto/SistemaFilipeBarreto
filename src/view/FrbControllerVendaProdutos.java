@@ -69,8 +69,6 @@ public class FrbControllerVendaProdutos extends AbstractTableModel {
             return "Quantidade";
         } else if (columnIndex == 4) {
             return "Preço Unitário";
-        } else if (columnIndex == 5) {
-            return "Desconto Aplicado";
         }
 
         return "";
