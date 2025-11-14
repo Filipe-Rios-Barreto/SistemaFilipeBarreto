@@ -124,6 +124,21 @@ public class FrbProdutos  implements java.io.Serializable {
     public void setFrbDataValidade(Date frbDataValidade) {
         this.frbDataValidade = frbDataValidade;
     }
+    @Override
+    public String toString(){
+         return this.frbSabor;
+        
+    }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof FrbProdutos){
+            if (this.frbIdProduto == ((FrbProdutos)object).frbIdProduto){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 

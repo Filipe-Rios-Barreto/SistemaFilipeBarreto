@@ -172,6 +172,8 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
 
     private void jMnuFrbVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuFrbVendasActionPerformed
         // TODO add your handling code here:
+        JDlgFrbVendas jDlgFrbVendas = new JDlgFrbVendas(this, true);
+        jDlgFrbVendas.setVisible(true);
     }//GEN-LAST:event_jMnuFrbVendasActionPerformed
 
     /**

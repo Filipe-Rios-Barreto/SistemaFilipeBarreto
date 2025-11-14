@@ -238,7 +238,22 @@ public class FrbClientes  implements java.io.Serializable {
     public void setFrbAtivo(String frbAtivo) {
         this.frbAtivo = frbAtivo;
     }
-
+    
+    @Override
+    public String toString(){
+         return this.frbNome;
+        
+    }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof FrbClientes){
+            if (this.frbIdCliente == ((FrbClientes)object).frbIdCliente){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

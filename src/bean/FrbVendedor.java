@@ -123,7 +123,21 @@ public class FrbVendedor  implements java.io.Serializable {
     public void setFrbEmail(String frbEmail) {
         this.frbEmail = frbEmail;
     }
-
+    @Override
+    public String toString(){
+         return this.frbNome;
+        
+    }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof FrbVendedor){
+            if (this.frbIdVendedor == ((FrbVendedor)object).frbIdVendedor){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

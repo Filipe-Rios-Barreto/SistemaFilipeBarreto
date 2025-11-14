@@ -37,7 +37,7 @@ public class FrbVendaDAO extends AbstractDAO {
         session.beginTransaction();
         session.flush();
         session.clear();
-        session.save(object);
+        session.delete(object);
         session.getTransaction().commit();
     }
 

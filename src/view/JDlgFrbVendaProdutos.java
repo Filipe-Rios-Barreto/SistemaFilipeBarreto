@@ -24,12 +24,12 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
         initComponents();
         setTitle("Pedidos produtos");
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
-        jTxtQuantidade.setText("1");
+        Util.habilitar(false, jTxtFrbValorUnitario, jTxtFrbTotal);
+        jTxtFrbQuantidade.setText("1");
         FrbProdutosDAO frbProdutosDAO = new FrbProdutosDAO();
         List listaVend = (List) frbProdutosDAO.listAll();
         for (Object object : listaVend) {
-            jCboProdutos.addItem((FrbProdutos) object);
+            jCboFrbProdutos.addItem((FrbProdutos) object);
         }
     }
 
@@ -43,23 +43,23 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jCboProdutos = new javax.swing.JComboBox<FrbProdutos>();
+        jCboFrbProdutos = new javax.swing.JComboBox<FrbProdutos>();
         jLabel2 = new javax.swing.JLabel();
-        jTxtQuantidade = new javax.swing.JTextField();
-        jTxtValorUnitario = new javax.swing.JTextField();
+        jTxtFrbQuantidade = new javax.swing.JTextField();
+        jTxtFrbValorUnitario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTxtTotal = new javax.swing.JTextField();
+        jTxtFrbTotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jBtnOk = new javax.swing.JButton();
-        jBtnCancelar = new javax.swing.JButton();
+        jBtnFrbOk = new javax.swing.JButton();
+        jBtnFrbCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Produtos");
 
-        jCboProdutos.addActionListener(new java.awt.event.ActionListener() {
+        jCboFrbProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCboProdutosActionPerformed(evt);
+                jCboFrbProdutosActionPerformed(evt);
             }
         });
 
@@ -69,19 +69,19 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
 
         jLabel4.setText("Total");
 
-        jBtnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
-        jBtnOk.setText("OK");
-        jBtnOk.addActionListener(new java.awt.event.ActionListener() {
+        jBtnFrbOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnFrbOk.setText("OK");
+        jBtnFrbOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnOkActionPerformed(evt);
+                jBtnFrbOkActionPerformed(evt);
             }
         });
 
-        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
-        jBtnCancelar.setText("Cancelar");
-        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnFrbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnFrbCancelar.setText("Cancelar");
+        jBtnFrbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCancelarActionPerformed(evt);
+                jBtnFrbCancelarActionPerformed(evt);
             }
         });
 
@@ -95,25 +95,25 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jCboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCboFrbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtnOk)
+                                .addComponent(jBtnFrbOk)
                                 .addGap(40, 40, 40)
-                                .addComponent(jBtnCancelar))
+                                .addComponent(jBtnFrbCancelar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTxtFrbQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFrbValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFrbTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4))))
                         .addGap(25, 25, 25))))
         );
@@ -128,45 +128,45 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTxtFrbValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFrbTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCboFrbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTxtFrbQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnOk)
-                    .addComponent(jBtnCancelar))
+                    .addComponent(jBtnFrbOk)
+                    .addComponent(jBtnFrbCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
+    private void jBtnFrbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOkActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_jBtnOkActionPerformed
+    }//GEN-LAST:event_jBtnFrbOkActionPerformed
 
-    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+    private void jBtnFrbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbCancelarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_jBtnCancelarActionPerformed
+    }//GEN-LAST:event_jBtnFrbCancelarActionPerformed
 
-    private void jCboProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboProdutosActionPerformed
+    private void jCboFrbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboFrbProdutosActionPerformed
         // TODO add your handling code here:
-        FrbProdutos frbProdutos = (FrbProdutos) jCboProdutos.getSelectedItem();
-        jTxtValorUnitario.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
-        int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToString(quant*frbProdutos.getFrbPreco()));
+        FrbProdutos frbProdutos = (FrbProdutos) jCboFrbProdutos.getSelectedItem();
+        jTxtFrbValorUnitario.setText(Util.doubleToString(frbProdutos.getFrbPreco()));
+        int quant = Util.strToInt(jTxtFrbQuantidade.getText());
+        jTxtFrbTotal.setText(Util.doubleToString(quant*frbProdutos.getFrbPreco()));
         
     
-    }//GEN-LAST:event_jCboProdutosActionPerformed
+    }//GEN-LAST:event_jCboFrbProdutosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,15 +218,15 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnCancelar;
-    private javax.swing.JButton jBtnOk;
-    private javax.swing.JComboBox<FrbProdutos> jCboProdutos;
+    private javax.swing.JButton jBtnFrbCancelar;
+    private javax.swing.JButton jBtnFrbOk;
+    private javax.swing.JComboBox<FrbProdutos> jCboFrbProdutos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTxtQuantidade;
-    private javax.swing.JTextField jTxtTotal;
-    private javax.swing.JTextField jTxtValorUnitario;
+    private javax.swing.JTextField jTxtFrbQuantidade;
+    private javax.swing.JTextField jTxtFrbTotal;
+    private javax.swing.JTextField jTxtFrbValorUnitario;
     // End of variables declaration//GEN-END:variables
 }
