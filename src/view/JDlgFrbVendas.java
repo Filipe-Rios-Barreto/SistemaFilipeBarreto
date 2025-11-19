@@ -11,6 +11,7 @@ import bean.FrbVendedor;
 import dao.FrbClientesDAO;
 import dao.FrbVendaDAO;
 import dao.FrbVendedorDAO;
+import java.util.ArrayList;
 import java.util.List;
 import tools.Util;
 
@@ -19,15 +20,21 @@ import tools.Util;
  * @author u1845853
  */
 public class JDlgFrbVendas extends javax.swing.JDialog {
+    
     private boolean incluir;
-
+        
+    FrbControllerVendaProdutos frbControllerVendaProdutos;
     /**
      * Creates new form JDlgPedidos
      */
     public JDlgFrbVendas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Cadastro de Vendas");
         setLocationRelativeTo(null);
+        Util.habilitar(false, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes,
+            jBtnAlterar, jBtnExcluir, jCboFrbVendedor, jTxtFrbTotal,
+            jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd ,jBtnConfirmar, jBtnCancelar);
         FrbClientesDAO frbClientesDAO = new FrbClientesDAO();
         List lista = (List) frbClientesDAO.listAll();
         for (int i = 0; i < lista.size(); i++) {
@@ -39,8 +46,10 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         for (Object object : listaVend) {
             jCboFrbVendedor.addItem((FrbVendedor) object);
         }
+        frbControllerVendaProdutos = new FrbControllerVendaProdutos();
+        frbControllerVendaProdutos.setList(new ArrayList());
+        jTable1.setModel(frbControllerVendaProdutos);
     }
-    
     public void beanView(FrbVenda frbVendas){
         jTxtFrbCodigo.setText( Util.intToStr(frbVendas.getFrbIdVenda()));
         jFmtFrbData.setText(Util.dateToStr(frbVendas.getFrbDataVenda()));
@@ -49,7 +58,6 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         jCboFrbVendedor.setSelectedItem(frbVendas.getFrbVendedor());
         
     }
-    
     public FrbVenda viewBean() {
         FrbVenda frbVenda = new FrbVenda();
         frbVenda.setFrbIdVenda( Util.strToInt(jTxtFrbCodigo.getText()));
@@ -59,7 +67,7 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         frbVenda.setFrbVendedor((FrbVendedor) jCboFrbVendedor.getSelectedItem());
         return frbVenda;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -302,7 +310,8 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
     private void jBtnFrbExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbExcluirProdActionPerformed
         // TODO add your handling code here:
         if (Util.perguntar("Deseja excluir o produto ?")== true) {
-            
+            int rowindex = jTable1.getSelectedRow();
+            frbControllerVendaProdutos.removeBean(rowindex);
         }
     }//GEN-LAST:event_jBtnFrbExcluirProdActionPerformed
 
@@ -314,8 +323,9 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
 
     private void jBtnFrbIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbIncluirProdActionPerformed
         // TODO add your handling code here:
-        JDlgFrbVendaProdutos jDlgPedidosProdutos = new JDlgFrbVendaProdutos(null, true);
-        jDlgPedidosProdutos.setVisible(true);
+        JDlgFrbVendaProdutos jDlgFrbVendaProdutos = new JDlgFrbVendaProdutos(null, true);
+        jDlgFrbVendaProdutos.setTelaAnterior(this);
+        jDlgFrbVendaProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnFrbIncluirProdActionPerformed
 
     private void jCboFrbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboFrbClientesActionPerformed
@@ -340,7 +350,7 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        Util.habilitar(true, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed

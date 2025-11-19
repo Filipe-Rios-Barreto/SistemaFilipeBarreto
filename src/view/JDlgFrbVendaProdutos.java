@@ -6,6 +6,7 @@
 package view;
 
 import bean.FrbProdutos;
+import bean.FrbVendaprodutos;
 import dao.FrbProdutosDAO;
 import java.util.List;
 import tools.Util;
@@ -15,10 +16,13 @@ import tools.Util;
  * @author u1845853
  */
 public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
-
+    private JDlgFrbVendas jDlgFrbVendas;
     /**
      * Creates new form JDlgPedidosProdutos
      */
+    public void setTelaAnterior(JDlgFrbVendas jDlgFrbVendas) {
+        this.jDlgFrbVendas = jDlgFrbVendas;
+    }
     public JDlgFrbVendaProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -65,11 +69,23 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
 
         jLabel2.setText("Quantidade");
 
+        jTxtFrbQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtFrbQuantidadeKeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("Valor Unitário");
+
+        jTxtFrbTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtFrbTotalActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Total");
 
-        jBtnFrbOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnFrbOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok.png"))); // NOI18N
         jBtnFrbOk.setText("OK");
         jBtnFrbOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +93,7 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
             }
         });
 
-        jBtnFrbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnFrbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
         jBtnFrbCancelar.setText("Cancelar");
         jBtnFrbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +166,11 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
 
     private void jBtnFrbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbOkActionPerformed
         // TODO add your handling code here:
+        FrbVendaprodutos frbVendaprodutos = new FrbVendaprodutos();
+        frbVendaprodutos.setFrbProdutos((FrbProdutos) jCboFrbProdutos.getSelectedItem());
+        frbVendaprodutos.setFrbQuantidade(Util.strToInt(jTxtFrbQuantidade.getText()));
+        frbVendaprodutos.setFrbPrecoUnitario(Util.strToDouble(jTxtFrbValorUnitario.getText()));
+        jDlgFrbVendas.frbControllerVendaProdutos.addBean(frbVendaprodutos);
         setVisible(false);
     }//GEN-LAST:event_jBtnFrbOkActionPerformed
 
@@ -167,6 +188,20 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
         
     
     }//GEN-LAST:event_jCboFrbProdutosActionPerformed
+
+    private void jTxtFrbTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrbTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtFrbTotalActionPerformed
+
+    private void jTxtFrbQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtFrbQuantidadeKeyReleased
+        // TODO add your handling code here:
+        if(!jTxtFrbQuantidade.getText().isEmpty()){
+        FrbProdutos frbProdutos = (FrbProdutos) jCboFrbProdutos.getSelectedItem();
+        int quant = Util.strToInt(jTxtFrbQuantidade.getText());
+        jTxtFrbTotal.setText(Util.doubleToString(quant*frbProdutos.getFrbPreco()));
+        }  else{ jTxtFrbTotal.setText("0");
+        }
+    }//GEN-LAST:event_jTxtFrbQuantidadeKeyReleased
 
     /**
      * @param args the command line arguments

@@ -26,6 +26,15 @@ public class FrbControllerVendaProdutos extends AbstractTableModel {
         return (FrbVendaprodutos) lstVendaProdutos.get(rowIndex);
     }
 
+    public void addBean(FrbVendaprodutos frbVendaprodutos) {
+        this.lstVendaProdutos.add(frbVendaprodutos);
+        this.fireTableDataChanged();
+    }
+    
+    public void removeBean(int rowIndex){
+        this.lstVendaProdutos.remove(rowIndex);
+        this.fireTableDataChanged();
+    }
     @Override
     public int getRowCount() {
         return lstVendaProdutos.size();
@@ -33,7 +42,7 @@ public class FrbControllerVendaProdutos extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 5;
     }
 
     @Override
@@ -41,17 +50,15 @@ public class FrbControllerVendaProdutos extends AbstractTableModel {
         FrbVendaprodutos frbVendaProdutos = (FrbVendaprodutos) lstVendaProdutos.get(rowIndex);
 
         if (columnIndex == 0) {
-            return frbVendaProdutos.getFrbIdVendaProduto();
+            return frbVendaProdutos.getFrbProdutos().getFrbIdProduto();
         } else if (columnIndex == 1) {
-            return frbVendaProdutos.getFrbVenda();
+            return frbVendaProdutos.getFrbProdutos().getFrbSabor();
         } else if (columnIndex == 2) {
-            return frbVendaProdutos.getFrbProdutos();
-        } else if (columnIndex == 3) {
             return frbVendaProdutos.getFrbQuantidade();
-        } else if (columnIndex == 4) {
+        } else if (columnIndex == 3) {
             return frbVendaProdutos.getFrbPrecoUnitario();
-        } else if (columnIndex == 5) {
-            return frbVendaProdutos.getFrbDescontoAplicado();
+        } else if (columnIndex == 4) {
+            return frbVendaProdutos.getFrbQuantidade() * frbVendaProdutos.getFrbPrecoUnitario();
         }
 
         return "";
@@ -60,15 +67,15 @@ public class FrbControllerVendaProdutos extends AbstractTableModel {
     @Override
     public String getColumnName(int columnIndex) {
         if (columnIndex == 0) {
-            return "Código Venda Produto";
-        } else if (columnIndex == 1) {
-            return "Código Venda";
-        } else if (columnIndex == 2) {
             return "Código Produto";
-        } else if (columnIndex == 3) {
+        } else if (columnIndex == 1) {
+            return "Sabor";
+        } else if (columnIndex == 2) {
             return "Quantidade";
+        } else if (columnIndex == 3) {
+            return "Preço";
         } else if (columnIndex == 4) {
-            return "Preço Unitário";
+            return "Total";
         }
 
         return "";
