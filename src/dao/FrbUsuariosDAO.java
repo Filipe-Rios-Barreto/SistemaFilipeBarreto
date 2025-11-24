@@ -67,4 +67,28 @@ public class FrbUsuariosDAO extends AbstractDAO {
         frbUsuariosDAO.listAll();
         System.out.println("Deu certo!");
     }
+    
+    public boolean autenticar(String frbnome, String frbsenha) {
+        try {
+            session.beginTransaction();
+
+            String hql = "FROM FrbUsuarios WHERE frbNome = :nome AND frbSenha = :senha";
+            org.hibernate.Query query = session.createQuery(hql);
+            query.setParameter("nome", frbnome);
+            query.setParameter("senha", frbsenha);
+
+            FrbUsuarios usuario = (FrbUsuarios) query.uniqueResult();
+
+            session.getTransaction().commit();
+
+            if (usuario != null) {
+                return true;
+            }
+
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(FrbUsuariosDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
 }
