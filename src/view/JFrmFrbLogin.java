@@ -6,7 +6,6 @@ package view;
 
 import dao.FrbUsuariosDAO;
 import tools.Util;
-import view.JFrmFrbPrincipal;
 
 /**
  *
@@ -93,14 +92,14 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
         String frbSenha = new String(jPwdFrbSenha.getPassword()).trim();
 
         if (frbUsuario.isEmpty() || frbSenha.isEmpty()) {
-            Util.mensagem("Preencha todos os campos!");
+            Util.mensagem("Preenche tudo seu cabecudo");
             return;
         }
 
         tentativas++;
 
         if (DAO.autenticar(frbUsuario, frbSenha)) {
-            Util.mensagem("Você logou!");
+            Util.mensagem("Logado com total sucessidades");
 
             JFrmFrbPrincipal principal = new JFrmFrbPrincipal();
             principal.setVisible(true);
@@ -109,7 +108,7 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
             Util.mensagem("Usuário ou Senha incorretos!");
 
             if (tentativas >= tentativasmax) {
-                Util.mensagem("Número máximo de tentativas excedido.\nO programa será encerrado.");
+                Util.mensagem("Encerrando Sistema, você excedeu a quantidade de tentativas permitidas.");
                 System.exit(0);
             }
         }
