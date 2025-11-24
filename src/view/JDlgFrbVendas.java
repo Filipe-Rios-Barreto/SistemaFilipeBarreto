@@ -7,9 +7,11 @@ package view;
 
 import bean.FrbClientes;
 import bean.FrbVenda; //pedidos
+import bean.FrbVendaprodutos;
 import bean.FrbVendedor;
 import dao.FrbClientesDAO;
 import dao.FrbVendaDAO;
+import dao.FrbVendaprodutosDAO;
 import dao.FrbVendedorDAO;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,12 +52,15 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         frbControllerVendaProdutos.setList(new ArrayList());
         jTable1.setModel(frbControllerVendaProdutos);
     }
-    public void beanView(FrbVenda frbVendas){
-        jTxtFrbCodigo.setText( Util.intToStr(frbVendas.getFrbIdVenda()));
-        jFmtFrbData.setText(Util.dateToStr(frbVendas.getFrbDataVenda()));
-        jTxtFrbTotal.setText(Util.doubleToString(frbVendas.getFrbValorTotal()));
-        jCboFrbClientes.setSelectedItem(frbVendas.getFrbClientes());
-        jCboFrbVendedor.setSelectedItem(frbVendas.getFrbVendedor());
+    public void beanView(FrbVenda frbVenda){
+        jTxtFrbCodigo.setText( Util.intToStr(frbVenda.getFrbIdVenda()));
+        jFmtFrbData.setText(Util.dateToStr(frbVenda.getFrbDataVenda()));
+        jTxtFrbTotal.setText(Util.doubleToString(frbVenda.getFrbValorTotal()));
+        jCboFrbClientes.setSelectedItem(frbVenda.getFrbClientes());
+        jCboFrbVendedor.setSelectedItem(frbVenda.getFrbVendedor());
+        FrbVendaprodutosDAO frbVendaprodutosDAO = new FrbVendaprodutosDAO();
+        List lista = (List) frbVendaprodutosDAO.listProdutos(frbVenda);
+        frbControllerVendaProdutos.setList(lista);
         
     }
     public FrbVenda viewBean() {
@@ -375,10 +380,19 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         FrbVendaDAO frbVendaDAO = new FrbVendaDAO();
+        FrbVendaprodutosDAO frbVendaprodutosDAO = new FrbVendaprodutosDAO();
+        FrbVenda frbVenda = viewBean();
         if (incluir == true) {
-            frbVendaDAO.insert(viewBean());
+            frbVendaDAO.insert(frbVenda);
+            for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
+                FrbVendaprodutos frbVendaprodutos = frbControllerVendaProdutos.getBean(ind);
+                frbVendaprodutos.setFrbVenda(frbVenda);
+                frbVendaprodutosDAO.insert(frbVendaprodutos);
+            }
         } else {
-            frbVendaDAO.update(viewBean());
+            frbVendaDAO.update(frbVenda);
+            //remove todos os pedidosprodutos 
+
         }
         Util.habilitar(false, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
