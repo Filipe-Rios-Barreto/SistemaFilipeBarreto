@@ -31,21 +31,18 @@ public class FrbVenda  implements java.io.Serializable {
      private FrbVendedor frbVendedor;
      private Date frbDataVenda;
      private double frbValorTotal;
-     private String frbStatusVenda;
-     private String frbFormaPagamento;
 
     public FrbVenda() {
     }
 
 	
-    public FrbVenda(int frbIdVenda, FrbClientes frbClientes, FrbVendedor frbVendedor, Date frbDataVenda, double frbValorTotal, String frbStatusVenda, String frbFormaPagamento) {
+    public FrbVenda(int frbIdVenda, FrbClientes frbClientes, FrbVendedor frbVendedor, Date frbDataVenda, double frbValorTotal) {
         this.frbIdVenda = frbIdVenda;
         this.frbClientes = frbClientes;
         this.frbVendedor = frbVendedor;
         this.frbDataVenda = frbDataVenda;
         this.frbValorTotal = frbValorTotal;
-        this.frbStatusVenda = frbStatusVenda;
-        this.frbFormaPagamento = frbFormaPagamento;
+
     }
 
      @Id 
@@ -60,7 +57,7 @@ public class FrbVenda  implements java.io.Serializable {
         this.frbIdVenda = frbIdVenda;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="frb_fkCliente", nullable=false)
     public FrbClientes getFrbClientes() {
         return this.frbClientes;
@@ -70,7 +67,7 @@ public class FrbVenda  implements java.io.Serializable {
         this.frbClientes = frbClientes;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="frb_fkVendedor", nullable=false)
     public FrbVendedor getFrbVendedor() {
         return this.frbVendedor;

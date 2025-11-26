@@ -24,18 +24,16 @@ public class FrbVendaprodutos  implements java.io.Serializable {
      private FrbVenda frbVenda;
      private int frbQuantidade;
      private double frbPrecoUnitario;
-     private double frbDescontoAplicado;
 
     public FrbVendaprodutos() {
     }
 
-    public FrbVendaprodutos(int frbIdVendaProduto, FrbProdutos frbProdutos, FrbVenda frbVenda, int frbQuantidade, double frbPrecoUnitario, double frbDescontoAplicado) {
+    public FrbVendaprodutos(int frbIdVendaProduto, FrbProdutos frbProdutos, FrbVenda frbVenda, int frbQuantidade, double frbPrecoUnitario) {
        this.frbIdVendaProduto = frbIdVendaProduto;
        this.frbProdutos = frbProdutos;
        this.frbVenda = frbVenda;
        this.frbQuantidade = frbQuantidade;
        this.frbPrecoUnitario = frbPrecoUnitario;
-       this.frbDescontoAplicado = frbDescontoAplicado;
     }
    
      @Id 
@@ -50,7 +48,7 @@ public class FrbVendaprodutos  implements java.io.Serializable {
         this.frbIdVendaProduto = frbIdVendaProduto;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="frb_fkProduto", nullable=false)
     public FrbProdutos getFrbProdutos() {
         return this.frbProdutos;
@@ -60,7 +58,7 @@ public class FrbVendaprodutos  implements java.io.Serializable {
         this.frbProdutos = frbProdutos;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="frb_fkVenda", nullable=false)
     public FrbVenda getFrbVenda() {
         return this.frbVenda;
@@ -89,19 +87,6 @@ public class FrbVendaprodutos  implements java.io.Serializable {
     public void setFrbPrecoUnitario(double frbPrecoUnitario) {
         this.frbPrecoUnitario = frbPrecoUnitario;
     }
-
-    
-    @Column(name="frb_descontoAplicado", nullable=false, precision=10)
-    public double getFrbDescontoAplicado() {
-        return this.frbDescontoAplicado;
-    }
-    
-    public void setFrbDescontoAplicado(double frbDescontoAplicado) {
-        this.frbDescontoAplicado = frbDescontoAplicado;
-    }
-
-
-
 
 }
 
