@@ -5,6 +5,8 @@
  */
 package view;
 
+import pesquisar.JDlgFrbVendasPesquisar;
+import controller.FrbControllerVendaProdutos;
 import bean.FrbClientes;
 import bean.FrbVenda; //pedidos
 import bean.FrbVendaprodutos;

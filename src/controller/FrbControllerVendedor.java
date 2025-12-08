@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package controller;
 
-import bean.FrbProdutos;
+import bean.FrbVendedor;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import java.text.SimpleDateFormat;
@@ -14,22 +14,22 @@ import java.text.SimpleDateFormat;
  *
  * @author 
  */
-public class FrbControllerProdutos extends AbstractTableModel {
+public class FrbControllerVendedor extends AbstractTableModel {
 
-    private List lstProdutos;
+    private List lstVendedores;
 
-    public void setList(List lstProdutos) {
-        this.lstProdutos = lstProdutos;
+    public void setList(List lstVendedores) {
+        this.lstVendedores = lstVendedores;
         this.fireTableDataChanged();
     }
 
-    public FrbProdutos getBean(int rowIndex) {
-        return (FrbProdutos) lstProdutos.get(rowIndex);
+    public FrbVendedor getBean(int rowIndex) {
+        return (FrbVendedor) lstVendedores.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstProdutos.size();
+        return lstVendedores.size();
     }
 
     @Override
@@ -39,24 +39,25 @@ public class FrbControllerProdutos extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        FrbProdutos frbProdutos = (FrbProdutos) lstProdutos.get(rowIndex);
+        FrbVendedor frbVendedor = (FrbVendedor) lstVendedores.get(rowIndex);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         if (columnIndex == 0) {
-            return frbProdutos.getFrbIdProduto();
+            return frbVendedor.getFrbIdVendedor();
         } else if (columnIndex == 1) {
-            return frbProdutos.getFrbSabor();
+            return frbVendedor.getFrbNome();
         } else if (columnIndex == 2) {
-            return frbProdutos.getFrbDescricao();
+            return frbVendedor.getFrbTelefone();
         } else if (columnIndex == 3) {
-            return frbProdutos.getFrbPreco();
+            return frbVendedor.getFrbEmail();
         } else if (columnIndex == 4) {
-            return frbProdutos.getFrbEstoque();
+            return frbVendedor.getFrbComissao();
         } else if (columnIndex == 5) {
-            return frbProdutos.getFrbTamanho();
+            return frbVendedor.getFrbCpf();
         } else if (columnIndex == 6) {
-            java.util.Date dataValidade = frbProdutos.getFrbDataValidade();
-            return (dataValidade != null) ? dateFormat.format(dataValidade) : "";
+            return (frbVendedor.getFrbDataContrato() != null)
+                    ? dateFormat.format(frbVendedor.getFrbDataContrato())
+                    : "";
         }
 
         return "";
@@ -67,17 +68,17 @@ public class FrbControllerProdutos extends AbstractTableModel {
         if (columnIndex == 0) {
             return "Código";
         } else if (columnIndex == 1) {
-            return "Sabor";
+            return "Nome";
         } else if (columnIndex == 2) {
-            return "Descrição";
+            return "Telefone";
         } else if (columnIndex == 3) {
-            return "Preço";
+            return "E-mail";
         } else if (columnIndex == 4) {
-            return "Estoque";
+            return "Comissão";
         } else if (columnIndex == 5) {
-            return "Tamanho";
+            return "CPF";
         } else if (columnIndex == 6) {
-            return "Data de Validade";
+            return "Data de Contrato";
         }
 
         return "";

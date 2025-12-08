@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package view;
+import pesquisar.JDlgFrbClientesPesquisar;
 import bean.FrbClientes;
 import bean.FrbUsuarios;
 import dao.FrbClientesDAO;

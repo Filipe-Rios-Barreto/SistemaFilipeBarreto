@@ -4,6 +4,7 @@
  */
 package view;
 
+import pesquisar.JDlgFrbProdutosPesquisar;
 import bean.FrbProdutos;
 import dao.FrbProdutosDAO;
 import tools.Util;

@@ -2,11 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view;
+package pesquisar;
 
+import controller.FrbControllerUsuarios;
 import bean.FrbUsuarios;
 import dao.FrbUsuariosDAO;
 import java.util.List;
+import view.JDlgFrbUsuarios;
 
 /**
  *

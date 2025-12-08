@@ -2,44 +2,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view;
+package pesquisar;
 
-import bean.FrbProdutos;
-import dao.FrbProdutosDAO;
+import controller.FrbControllerVendedor;
+import bean.FrbVendedor;
+import dao.FrbVendedorDAO;
 import java.util.List;
+import view.JDlgFrbVendedor;
 
 /**
  *
- * @author 
+ * @author u42977829873
  */
-public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
-
-    private JDlgFrbProdutos jDlgFrbProdutos;
-    FrbControllerProdutos frbControllerProdutos;
+public class JDlgFrbVendedorPesquisar extends javax.swing.JDialog {
 
     /**
-     * Creates new form JDlgFrbProdutosPesquisar
+     * Creates new form JDlgVendedorPesquisar
      */
-    public JDlgFrbProdutosPesquisar(java.awt.Frame parent, boolean modal) {
+    private JDlgFrbVendedor jDlgFrbVendedor;
+    FrbControllerVendedor frbControllerVendedor;
+
+    public JDlgFrbVendedorPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Pesquisar Produtos");
+        setTitle("Pesquisar Vendedores");
 
-        // Inicializa controller e DAO
-        frbControllerProdutos = new FrbControllerProdutos();
-        FrbProdutosDAO frbProdutosDAO = new FrbProdutosDAO();
-
-        // Carrega lista de produtos
-        List lista = (List) frbProdutosDAO.listAll();
-        frbControllerProdutos.setList(lista);
-
-        // Define o modelo da tabela
-        jTblFrbTabela.setModel(frbControllerProdutos);
+        frbControllerVendedor = new FrbControllerVendedor();
+        FrbVendedorDAO frbVendedorDAO = new FrbVendedorDAO();
+        List lista = (List) frbVendedorDAO.listAll();
+        frbControllerVendedor.setList(lista);
+        jTblFrbTabela.setModel(frbControllerVendedor);
     }
 
-    public void setTelaPai(JDlgFrbProdutos jDlgFrbProdutos) {
-        this.jDlgFrbProdutos = jDlgFrbProdutos;
+    public void setTelaPai(JDlgFrbVendedor jDlgFrbVendedor) {
+        this.jDlgFrbVendedor = jDlgFrbVendedor;
     }
 
     @SuppressWarnings("unchecked")
@@ -60,12 +57,12 @@ public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Descrição", "Preço", "Estoque"
+                "Nome", "Código", "Email", "Telefone"
             }
         ));
         jScrollPanelFrbPainel.setViewportView(jTblFrbTabela);
 
-        jBtnFrbOK.setText("OK");
+        jBtnFrbOK.setText("Ok");
         jBtnFrbOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnFrbOKActionPerformed(evt);
@@ -80,13 +77,13 @@ public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jBtnFrbOK)
-                    .addComponent(jScrollPanelFrbPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPanelFrbPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPanelFrbPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnFrbOK)
                 .addContainerGap())
         );
@@ -95,15 +92,9 @@ public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
     }// </editor-fold>                        
 
     private void jBtnFrbOKActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // Recupera produto selecionado e envia para a tela pai
-        int selectedRow = jTblFrbTabela.getSelectedRow();
-        if (selectedRow >= 0) {
-            FrbProdutos frbProdutos = frbControllerProdutos.getBean(selectedRow);
-            jDlgFrbProdutos.beanView(frbProdutos);
-            this.setVisible(false);
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Selecione um produto na tabela!");
-        }
+        FrbVendedor frbVendedor = frbControllerVendedor.getBean(jTblFrbTabela.getSelectedRow());
+        jDlgFrbVendedor.beanView(frbVendedor);
+        this.setVisible(false);
     }                                         
 
     public static void main(String args[]) {
@@ -115,12 +106,12 @@ public class JDlgFrbProdutosPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(JDlgFrbProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgFrbVendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlgFrbProdutosPesquisar dialog = new JDlgFrbProdutosPesquisar(new javax.swing.JFrame(), true);
+                JDlgFrbVendedorPesquisar dialog = new JDlgFrbVendedorPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -50,7 +50,37 @@ public class FrbProdutosDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
+    
+    public Object listNome(String sabor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbProdutos.class);
+        criteria.add(Restrictions.like("frbSabor", "%" + sabor + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listValor(double preco) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbProdutos.class);
+        criteria.add(Restrictions.ge("frbPreco", preco));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
+    
+    public Object listNomeValor(String sabor, double preco) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbProdutos.class);
+        criteria.add(Restrictions.like("frbSabor", "%" + sabor + "%"));
+        criteria.add(Restrictions.ge("frbPreco", preco));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    
     @Override
     public Object listAll() {
         session.beginTransaction();

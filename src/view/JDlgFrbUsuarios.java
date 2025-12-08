@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import pesquisar.JDlgFrbUsuariosPesquisar;
 import dao.FrbUsuariosDAO;
 import bean.FrbUsuarios;
 import javax.swing.JOptionPane;
