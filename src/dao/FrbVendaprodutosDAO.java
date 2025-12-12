@@ -42,11 +42,19 @@ public class FrbVendaprodutosDAO extends AbstractDAO {
         session.getTransaction().commit();
     }
 
+    public void deleteVenda(FrbVenda frbVenda) {
+        List lista = (List) listProdutos(frbVenda);
+        for (int i = 0; i < lista.size(); i++) {
+            FrbVendaprodutos frbVendaprodutos = (FrbVendaprodutos) lista.get(i);
+            delete(frbVendaprodutos);
+        }
+    }
+
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbVendaprodutos.class);
-        criteria.add(Restrictions.eq("frb_idVendaProduto", codigo) );
+        criteria.add(Restrictions.eq("frb_idVendaProduto", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -60,15 +68,16 @@ public class FrbVendaprodutosDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
-    
+
     public Object listProdutos(FrbVenda frbVenda) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbVendaprodutos.class);
-        criteria.add(Restrictions.eq("frbVenda", frbVenda) );
+        criteria.add(Restrictions.eq("frb_idVenda", frbVenda));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
+
     public static void main(String[] args) {
         FrbVendaprodutosDAO frbVendaprodutosDAO = new FrbVendaprodutosDAO();
         frbVendaprodutosDAO.listAll();

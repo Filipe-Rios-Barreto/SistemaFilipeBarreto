@@ -6,6 +6,7 @@
 package dao;
 
 import bean.FrbVenda;
+import bean.FrbVendaprodutos;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -40,7 +41,15 @@ public class FrbVendaDAO extends AbstractDAO {
         session.delete(object);
         session.getTransaction().commit();
     }
-
+    
+        public void deleteVenda(FrbVenda frbVenda) {
+        List lista = (List) listProdutos(frbVenda);
+        for (int i = 0; i < lista.size(); i++) {
+            FrbVendaprodutos frbVendaprodutos = (FrbVendaprodutos) lista.get(i);
+            delete(frbVendaprodutos);
+        }
+    }
+    
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
@@ -50,7 +59,16 @@ public class FrbVendaDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
-
+    
+    public Object listProdutos(FrbVenda frbVenda) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbVendaprodutos.class);
+        criteria.add(Restrictions.eq("frb_ifVenda", frbVenda) );
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
     @Override
     public Object listAll() {
         session.beginTransaction();
@@ -59,6 +77,7 @@ public class FrbVendaDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
+
     public static void main(String[] args) {
         FrbVendaDAO frbVendaDAO = new FrbVendaDAO();
         frbVendaDAO.listAll();
