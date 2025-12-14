@@ -165,10 +165,6 @@ public class JDlgFrbConsultaProdutos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jBtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnImprimirActionPerformed
-
     private void jBtnFrbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbConsultaActionPerformed
         // TODO add your handling code here:
     if((jTxtFrbNome.getText().isEmpty() == false)
@@ -187,6 +183,16 @@ public class JDlgFrbConsultaProdutos extends javax.swing.JDialog {
         frbControllerConsultasProdutos.setList(lista);
     }
     }//GEN-LAST:event_jBtnFrbConsultaActionPerformed
+
+    private void jBtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImprimirActionPerformed
+        // TODO add your handling code here:
+    jBtnImprimir.setText("haha trolei");
+    javax.swing.Timer timer = new javax.swing.Timer(1000, e -> {
+        jBtnImprimir.setText("Imprimir");
+    });
+    timer.setRepeats(false);
+    timer.start();
+    }//GEN-LAST:event_jBtnImprimirActionPerformed
 
     /**
      * @param args the command line arguments

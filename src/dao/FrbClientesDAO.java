@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import bean.FrbClientes;
@@ -10,10 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-/**
- *
- * @author u42977829873
- */
 public class FrbClientesDAO extends AbstractDAO {
 
     @Override
@@ -45,7 +36,35 @@ public class FrbClientesDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbClientes.class);
-        criteria.add(Restrictions.eq("frb_idCliente", codigo) );
+        criteria.add(Restrictions.eq("frbIdCliente", codigo));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbClientes.class);
+        criteria.add(Restrictions.like("frbNome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listCpf(String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbClientes.class);
+        criteria.add(Restrictions.eq("frbCpf", cpf));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeCpf(String nome, String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(FrbClientes.class);
+        criteria.add(Restrictions.like("frbNome", "%" + nome + "%"));
+        criteria.add(Restrictions.eq("frbCpf", cpf));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -58,10 +77,5 @@ public class FrbClientesDAO extends AbstractDAO {
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
-    }
-    public static void main(String[] args) {
-        FrbClientesDAO frbClientesDAO = new FrbClientesDAO();
-        frbClientesDAO.listAll();
-        System.out.println("deu certo");
     }
 }

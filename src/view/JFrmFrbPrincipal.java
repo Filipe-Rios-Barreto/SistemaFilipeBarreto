@@ -32,8 +32,12 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBtnClientes = new javax.swing.JButton();
+        jBtnProdutos = new javax.swing.JButton();
+        jBtnVendas = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        jBtnConsultaClientes = new javax.swing.JButton();
+        jBtnConsultaProdutos = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnuFrbCadastro = new javax.swing.JMenu();
@@ -45,27 +49,71 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
         jMnuFrbSair = new javax.swing.JMenuItem();
         jMnuFrbMovimento = new javax.swing.JMenu();
         jMnuFrbVendas = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMnuFrbConsultaClientes = new javax.swing.JMenuItem();
+        jMnuFrbConsultaProdutos = new javax.swing.JMenuItem();
+        jMnuConsultaVendedor = new javax.swing.JMenuItem();
+        jMnuConsultaVendas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setRollover(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBtnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
+        jBtnClientes.setFocusable(false);
+        jBtnClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBtnClientesActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton2);
+        jToolBar1.add(jBtnClientes);
+
+        jBtnProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
+        jBtnProdutos.setFocusable(false);
+        jBtnProdutos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnProdutosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnProdutos);
+
+        jBtnVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
+        jBtnVendas.setFocusable(false);
+        jBtnVendas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnVendas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnVendasActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnVendas);
+        jToolBar1.add(jSeparator2);
+
+        jBtnConsultaClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clients.png"))); // NOI18N
+        jBtnConsultaClientes.setFocusable(false);
+        jBtnConsultaClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnConsultaClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnConsultaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultaClientesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnConsultaClientes);
+
+        jBtnConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
+        jBtnConsultaProdutos.setFocusable(false);
+        jBtnConsultaProdutos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnConsultaProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultaProdutosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnConsultaProdutos);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tema.png"))); // NOI18N
         jButton3.setText("Alternar Tema");
@@ -144,6 +192,46 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMnuFrbMovimento);
 
+        jMenu1.setText("Consultas");
+
+        jMnuFrbConsultaClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clients.png"))); // NOI18N
+        jMnuFrbConsultaClientes.setText("Clientes");
+        jMnuFrbConsultaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuFrbConsultaClientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuFrbConsultaClientes);
+
+        jMnuFrbConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
+        jMnuFrbConsultaProdutos.setText("Produtos");
+        jMnuFrbConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuFrbConsultaProdutosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuFrbConsultaProdutos);
+
+        jMnuConsultaVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrator.png"))); // NOI18N
+        jMnuConsultaVendedor.setText("Vendedor");
+        jMnuConsultaVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultaVendedorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultaVendedor);
+
+        jMnuConsultaVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
+        jMnuConsultaVendas.setText("Venda");
+        jMnuConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultaVendasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultaVendas);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,14 +290,59 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
         jDlgFrbVendas.setVisible(true);
     }//GEN-LAST:event_jMnuFrbVendasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBtnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnProdutosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        jMnuFrbProdutosActionPerformed(null);
+    }//GEN-LAST:event_jBtnProdutosActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Util.alternarTema();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jBtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnClientesActionPerformed
+        // TODO add your handling code here:
+        jMnuFrbClientesActionPerformed(null);
+    }//GEN-LAST:event_jBtnClientesActionPerformed
+
+    private void jBtnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnVendasActionPerformed
+        // TODO add your handling code here:
+        jMnuFrbVendasActionPerformed(null);
+    }//GEN-LAST:event_jBtnVendasActionPerformed
+
+    private void jMnuFrbConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuFrbConsultaProdutosActionPerformed
+        // TODO add your handling code here:
+        JDlgFrbConsultaProdutos jDlgFrbConsultaProdutos = new JDlgFrbConsultaProdutos(this, true);
+        jDlgFrbConsultaProdutos.setVisible(true);
+    }//GEN-LAST:event_jMnuFrbConsultaProdutosActionPerformed
+
+    private void jMnuFrbConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuFrbConsultaClientesActionPerformed
+        // TODO add your handling code here:
+        JDlgFrbConsultaClientes jDlgFrbConsultaClientes = new JDlgFrbConsultaClientes(this, true);
+        jDlgFrbConsultaClientes.setVisible(true);
+    }//GEN-LAST:event_jMnuFrbConsultaClientesActionPerformed
+
+    private void jBtnConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaClientesActionPerformed
+        // TODO add your handling code here:
+        jMnuFrbConsultaClientesActionPerformed(null);
+    }//GEN-LAST:event_jBtnConsultaClientesActionPerformed
+
+    private void jBtnConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaProdutosActionPerformed
+        // TODO add your handling code here:
+        jMnuFrbConsultaProdutosActionPerformed(null);
+    }//GEN-LAST:event_jBtnConsultaProdutosActionPerformed
+
+    private void jMnuConsultaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultaVendedorActionPerformed
+        // TODO add your handling code here:
+        JDlgFrbConsultaVendedor jDlgFrbConsultaVendedor = new JDlgFrbConsultaVendedor(this, true);
+        jDlgFrbConsultaVendedor.setVisible(true);
+    }//GEN-LAST:event_jMnuConsultaVendedorActionPerformed
+
+    private void jMnuConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultaVendasActionPerformed
+        // TODO add your handling code here:
+        JDlgFrbConsultaVendas jDlgFrbConsultaVendas = new JDlgFrbConsultaVendas(this, true);
+        jDlgFrbConsultaVendas.setVisible(true);
+    }//GEN-LAST:event_jMnuConsultaVendasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,12 +412,20 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBtnClientes;
+    private javax.swing.JButton jBtnConsultaClientes;
+    private javax.swing.JButton jBtnConsultaProdutos;
+    private javax.swing.JButton jBtnProdutos;
+    private javax.swing.JButton jBtnVendas;
     private javax.swing.JButton jButton3;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMnuConsultaVendas;
+    private javax.swing.JMenuItem jMnuConsultaVendedor;
     private javax.swing.JMenu jMnuFrbCadastro;
     private javax.swing.JMenuItem jMnuFrbClientes;
+    private javax.swing.JMenuItem jMnuFrbConsultaClientes;
+    private javax.swing.JMenuItem jMnuFrbConsultaProdutos;
     private javax.swing.JMenu jMnuFrbMovimento;
     private javax.swing.JMenuItem jMnuFrbProdutos;
     private javax.swing.JMenuItem jMnuFrbSair;
@@ -292,6 +433,7 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMnuFrbVendas;
     private javax.swing.JMenuItem jMnuFrbVendedor;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
