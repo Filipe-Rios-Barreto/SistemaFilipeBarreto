@@ -7,6 +7,7 @@ package view;
 
 import bean.FrbProdutos;
 import bean.FrbVendaprodutos;
+import bean.FrbVendaprodutos;
 import dao.FrbProdutosDAO;
 import java.util.List;
 import tools.Util;
@@ -17,11 +18,18 @@ import tools.Util;
  */
 public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
     private JDlgFrbVendas jDlgFrbVendas;
+    private boolean incluir;
     /**
      * Creates new form JDlgPedidosProdutos
      */
-    public void setTelaAnterior(JDlgFrbVendas jDlgFrbVendas) {
+    public void setTelaAnterior(JDlgFrbVendas jDlgFrbVendas, FrbVendaprodutos frbVendasprodutos) {
         this.jDlgFrbVendas = jDlgFrbVendas;
+        incluir = true;
+        if (frbVendasprodutos != null){
+            incluir = false;
+            jCboFrbProdutos.setSelectedItem(frbVendasprodutos.getFrbProdutos());
+            jTxtFrbQuantidade.setText(Util.intToStr(frbVendasprodutos.getFrbQuantidade()));
+        }
     }
     public JDlgFrbVendaProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -170,6 +178,9 @@ public class JDlgFrbVendaProdutos extends javax.swing.JDialog {
         frbVendaprodutos.setFrbProdutos((FrbProdutos) jCboFrbProdutos.getSelectedItem());
         frbVendaprodutos.setFrbQuantidade(Util.strToInt(jTxtFrbQuantidade.getText()));
         frbVendaprodutos.setFrbPrecoUnitario(Util.strToDouble(jTxtFrbValorUnitario.getText()));
+        if (incluir == false){
+            jDlgFrbVendas.frbControllerVendaProdutos.removeBean( jDlgFrbVendas.getjTable1().getSelectedRow() );
+        }
         jDlgFrbVendas.frbControllerVendaProdutos.addBean(frbVendaprodutos);
         setVisible(false);
     }//GEN-LAST:event_jBtnFrbOkActionPerformed

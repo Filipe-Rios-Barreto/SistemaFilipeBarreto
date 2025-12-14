@@ -18,6 +18,7 @@ import dao.FrbVendedorDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import tools.Util;
 
 /**
@@ -78,7 +79,10 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         frbVenda.setFrbVendedor((FrbVendedor) jCboFrbVendedor.getSelectedItem());
         return frbVenda;
     }
-
+    
+    public JTable getjTable1() {
+        return jTable1;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -328,13 +332,16 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
 
     private void jBtnFrbAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
+        JDlgFrbVendaProdutos jDlgFrbVendaProdutos = new JDlgFrbVendaProdutos(null, true);
+        FrbVendaprodutos frbVendaprodutos = frbControllerVendaProdutos.getBean(jTable1.getSelectedRow());
+        jDlgFrbVendaProdutos.setTelaAnterior(this, frbVendaprodutos);
+        jDlgFrbVendaProdutos.setVisible(true);
     }
 
     private void jBtnFrbIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         JDlgFrbVendaProdutos jDlgFrbVendaProdutos = new JDlgFrbVendaProdutos(null, true);
-        jDlgFrbVendaProdutos.setTelaAnterior(this);
+        jDlgFrbVendaProdutos.setTelaAnterior(this, null);
         jDlgFrbVendaProdutos.setVisible(true);
     }
 
@@ -370,6 +377,7 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        
         Util.habilitar(true, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         incluir = false;

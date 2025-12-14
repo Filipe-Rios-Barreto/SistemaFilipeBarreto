@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util;
+
 /**
  *
  * @author U42977829873
@@ -250,6 +252,7 @@ public class JFrmFrbPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Util.aplicarTemaEscuroSimples();
                 new JFrmFrbPrincipal().setVisible(true);
             }
         });
