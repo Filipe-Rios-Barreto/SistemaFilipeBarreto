@@ -67,6 +67,11 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
         jScrollPanelFrbPainel.setViewportView(jTblFrbTabela);
 
         jBtnFrbOK.setText("Ok");
+        jBtnFrbOK.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnFrbOKMouseClicked(evt);
+            }
+        });
         jBtnFrbOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnFrbOKActionPerformed(evt);
@@ -109,6 +114,10 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     jDlgFrbUsuarios.beanView(frbUsuarios);
     this.setVisible(false);
     }//GEN-LAST:event_jBtnFrbOKActionPerformed
+
+    private void jBtnFrbOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnFrbOKMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnFrbOKMouseClicked
 
     /**
      * @param args the command line arguments
