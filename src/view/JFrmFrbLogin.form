@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTxtFrbUsuario" max="32767" attributes="0"/>
+                  <Component id="jTxtFrbApelido" max="32767" attributes="0"/>
                   <Component id="jBtnFrbLogar" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -42,7 +42,7 @@
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTxtFrbUsuario" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxtFrbApelido" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -57,10 +57,13 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Apelido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtFrbUsuario">
+    <Component class="javax.swing.JTextField" name="jTxtFrbApelido">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtFrbApelidoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

@@ -14,7 +14,7 @@ import tools.Util;
 public class JFrmFrbLogin extends javax.swing.JFrame {
 
     private int tentativas = 0;
-    private int tentativasmax = 3;
+    private int tentativasmax = 2;
     private FrbUsuariosDAO DAO = new FrbUsuariosDAO();
 
     /**
@@ -35,14 +35,20 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTxtFrbUsuario = new javax.swing.JTextField();
+        jTxtFrbApelido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPwdFrbSenha = new javax.swing.JPasswordField();
         jBtnFrbLogar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("Apelido");
+
+        jTxtFrbApelido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtFrbApelidoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Senha");
 
@@ -60,7 +66,7 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTxtFrbUsuario)
+                    .addComponent(jTxtFrbApelido)
                     .addComponent(jBtnFrbLogar)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
@@ -73,7 +79,7 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTxtFrbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxtFrbApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -88,17 +94,17 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
 
     private void jBtnFrbLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFrbLogarActionPerformed
 
-        String frbUsuario = jTxtFrbUsuario.getText().trim();
+        String frbApelido = jTxtFrbApelido.getText().trim();
         String frbSenha = new String(jPwdFrbSenha.getPassword()).trim();
 
-        if (frbUsuario.isEmpty() || frbSenha.isEmpty()) {
+        if (frbApelido.isEmpty() || frbSenha.isEmpty()) {
             Util.mensagem("Preenche tudo seu cabecudo");
             return;
         }
 
         tentativas++;
 
-        if (DAO.autenticar(frbUsuario, frbSenha)) {
+        if (DAO.autenticar(frbApelido, frbSenha)) {
             Util.mensagem("Logado com total sucessidades");
 
             JFrmFrbPrincipal principal = new JFrmFrbPrincipal();
@@ -113,6 +119,10 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jBtnFrbLogarActionPerformed
+
+    private void jTxtFrbApelidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFrbApelidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtFrbApelidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +167,6 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPwdFrbSenha;
-    private javax.swing.JTextField jTxtFrbUsuario;
+    private javax.swing.JTextField jTxtFrbApelido;
     // End of variables declaration//GEN-END:variables
 }
