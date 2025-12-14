@@ -80,61 +80,61 @@ public static boolean temaEscuro = true;
         return String.valueOf(num);
     }
 
-public static void aplicarTemaEscuroSimples() {
-    try {
+ public static void aplicarTemaEscuroSimples() {
+        try {
+            aplicarNimbus();
+
+            UIManager.put("control", new java.awt.Color(60, 63, 65));
+            UIManager.put("info", new java.awt.Color(60, 63, 65));
+            UIManager.put("nimbusBase", new java.awt.Color(18, 30, 49));
+            UIManager.put("nimbusLightBackground", new java.awt.Color(43, 43, 43));
+            UIManager.put("text", new java.awt.Color(230, 230, 230));
+            UIManager.put("nimbusSelectionBackground", new java.awt.Color(104, 93, 156));
+            UIManager.put("nimbusSelectedText", new java.awt.Color(255, 255, 255));
+        } catch (Exception e) {
+        }
+    }
+
+    public static void aplicarTemaClaro() {
+        try {
+            aplicarNimbus();
+
+            // limpa cores customizadas
+            UIManager.put("control", null);
+            UIManager.put("info", null);
+            UIManager.put("nimbusBase", null);
+            UIManager.put("nimbusLightBackground", null);
+            UIManager.put("text", null);
+            UIManager.put("nimbusSelectionBackground", null);
+            UIManager.put("nimbusSelectedText", null);
+        } catch (Exception e) {
+        }
+    }
+
+    private static void aplicarNimbus() throws Exception {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 UIManager.setLookAndFeel(info.getClassName());
                 break;
             }
         }
-
-        // 🎨 cores escuras
-        UIManager.put("control", new java.awt.Color(60, 63, 65));
-        UIManager.put("info", new java.awt.Color(60, 63, 65));
-        UIManager.put("nimbusBase", new java.awt.Color(18, 30, 49));
-        UIManager.put("nimbusAlertYellow", new java.awt.Color(248, 187, 0));
-        UIManager.put("nimbusDisabledText", new java.awt.Color(128, 128, 128));
-        UIManager.put("nimbusFocus", new java.awt.Color(115, 164, 209));
-        UIManager.put("nimbusGreen", new java.awt.Color(176, 179, 50));
-        UIManager.put("nimbusInfoBlue", new java.awt.Color(66, 139, 221));
-        UIManager.put("nimbusLightBackground", new java.awt.Color(43, 43, 43));
-        UIManager.put("nimbusOrange", new java.awt.Color(191, 98, 4));
-        UIManager.put("nimbusRed", new java.awt.Color(169, 46, 34));
-        UIManager.put("nimbusSelectedText", new java.awt.Color(255, 255, 255));
-        UIManager.put("nimbusSelectionBackground", new java.awt.Color(104, 93, 156));
-        UIManager.put("text", new java.awt.Color(230, 230, 230));
-
-    } catch (Exception e) {
-        // ignora
     }
-    
-    
-}
-public static void alternarTema() {
-    try {
-        if (temaEscuro) {
-            // 🌞 TEMA CLARO (Nimbus padrão)
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+
+    public static void alternarTema() {
+        try {
+            if (temaEscuro) {
+                aplicarTemaClaro();
+            } else {
+                aplicarTemaEscuroSimples();
             }
-            temaEscuro = false;
-        } else {
-            // 🌙 TEMA ESCURO
-            aplicarTemaEscuroSimples();
-            temaEscuro = true;
-        }
 
-        // 🔄 atualiza TODAS as janelas abertas
-        for (Window w : Window.getWindows()) {
-            SwingUtilities.updateComponentTreeUI(w);
-        }
+            temaEscuro = !temaEscuro;
 
-    } catch (Exception e) {
-        // ignora
+            for (Window w : Window.getWindows()) {
+                SwingUtilities.updateComponentTreeUI(w);
+            }
+
+        } catch (Exception e) {
+        }
     }
-}
 }
