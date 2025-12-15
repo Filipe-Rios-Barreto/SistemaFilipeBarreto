@@ -32,7 +32,7 @@ public class FrbControllerConsultasClientes extends AbstractTableModel {
         } else if (columnIndex == 1) {
             return frbClientes.getFrbNome();
         } else if (columnIndex == 2) {
-            return frbClientes.getFrbCpf();
+            return frbClientes.getFrbCidade();
         }
         return "";
     }
@@ -44,7 +44,7 @@ public class FrbControllerConsultasClientes extends AbstractTableModel {
         } else if (columnIndex == 1) {
             return "Nome";
         } else if (columnIndex == 2) {
-            return "CPF";
+            return "Cidade";
         }
         return "";
     }

@@ -28,7 +28,7 @@ public class JDlgFrbConsultaProdutos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Pesquisar Usuários");
+        setTitle("Consultar Produtos");
         frbControllerConsultasProdutos = new FrbControllerConsultasProdutos();
         List lista = (List) frbProdutosDAO.listAll();
         frbControllerConsultasProdutos.setList(lista);

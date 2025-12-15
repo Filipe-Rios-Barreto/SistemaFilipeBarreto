@@ -64,6 +64,11 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTblFrbTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTblFrbTabelaMouseClicked(evt);
+            }
+        });
         jScrollPanelFrbPainel.setViewportView(jTblFrbTabela);
 
         jBtnFrbOK.setText("Ok");
@@ -118,6 +123,13 @@ public class JDlgFrbUsuariosPesquisar extends javax.swing.JDialog {
     private void jBtnFrbOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnFrbOKMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnFrbOKMouseClicked
+
+    private void jTblFrbTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblFrbTabelaMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2){
+            jBtnFrbOKActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTblFrbTabelaMouseClicked
 
     /**
      * @param args the command line arguments

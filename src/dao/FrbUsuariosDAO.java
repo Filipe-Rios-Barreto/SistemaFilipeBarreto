@@ -68,13 +68,13 @@ public class FrbUsuariosDAO extends AbstractDAO {
         System.out.println("Deu certo!");
     }
     
-    public boolean autenticar(String frbnome, String frbsenha) {
+    public boolean autenticar(String frbapelido, String frbsenha) {
         try {
             session.beginTransaction();
 
-            String hql = "FROM FrbUsuarios WHERE frbNome = :nome AND frbSenha = :senha";
+            String hql = "FROM FrbUsuarios WHERE frbApelido = :apelido AND frbSenha = :senha";
             org.hibernate.Query query = session.createQuery(hql);
-            query.setParameter("nome", frbnome);
+            query.setParameter("apelido", frbapelido);
             query.setParameter("senha", frbsenha);
 
             FrbUsuarios usuario = (FrbUsuarios) query.uniqueResult();

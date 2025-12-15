@@ -351,7 +351,7 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
+        Util.habilitar(false, jBtnExcluir, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal);
         frbControllerVendaProdutos.setList(new ArrayList());
@@ -363,7 +363,7 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
         JDlgFrbVendasPesquisar jDlgFrbVendasPesquisar = new JDlgFrbVendasPesquisar(null, true);
         jDlgFrbVendasPesquisar.setTelaAnterior(this);
         jDlgFrbVendasPesquisar.setVisible(true);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir);
     }
 

@@ -16,13 +16,14 @@ public class JFrmFrbLogin extends javax.swing.JFrame {
     private int tentativas = 0;
     private int tentativasmax = 2;
     private FrbUsuariosDAO DAO = new FrbUsuariosDAO();
-
+    
     /**
      * Creates new form JFrmFrbLogin
      */
     public JFrmFrbLogin() {
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Login do Usuário:");
     }
 
     /**

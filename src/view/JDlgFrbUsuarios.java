@@ -351,13 +351,13 @@ public class JDlgFrbUsuarios extends javax.swing.JDialog {
         JDlgFrbUsuariosPesquisar jDlgFrbUsuariosPesquisar = new JDlgFrbUsuariosPesquisar(null, true);
         jDlgFrbUsuariosPesquisar.setTelaPai(this);
         jDlgFrbUsuariosPesquisar.setVisible(true);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jCboFrbNivel,
+        Util.habilitar(false, jTxtFrbCodigo, jBtnExcluir, jTxtFrbNome, jCboFrbNivel,
                 jBtnAlterar, jTxtFrbApelido, jFmtFrbCpf, jFmtFrbDataDeNascimento,
                 jPwfFrbSenha, jCboFrbNivel, jChbFrbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);

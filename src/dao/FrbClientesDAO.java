@@ -51,20 +51,20 @@ public class FrbClientesDAO extends AbstractDAO {
         return lista;
     }
 
-    public Object listCpf(String cpf) {
+    public Object listCidade(String cidade) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbClientes.class);
-        criteria.add(Restrictions.eq("frbCpf", cpf));
+        criteria.add(Restrictions.like("frbCidade", "%" + cidade + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
 
-    public Object listNomeCpf(String nome, String cpf) {
+    public Object listNomeCidade(String nome, String cidade) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(FrbClientes.class);
         criteria.add(Restrictions.like("frbNome", "%" + nome + "%"));
-        criteria.add(Restrictions.eq("frbCpf", cpf));
+        criteria.add(Restrictions.like("frbCidade", "%" + cidade + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

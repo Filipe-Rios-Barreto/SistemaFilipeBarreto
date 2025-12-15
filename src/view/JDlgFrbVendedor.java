@@ -340,7 +340,7 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
+        Util.habilitar(false, jBtnExcluir, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
             jFmtFrbCpf, jFmtFrbCelular, jTxtFrbEmail, jFmtFrbComissão, jBtnAlterar, jBtnConfirmar, jBtnCancelar, jBtnExcluir);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbDataContrato,
@@ -353,7 +353,7 @@ public class JDlgFrbVendedor extends javax.swing.JDialog {
         JDlgFrbVendedorPesquisar jDlgFrbVendedorPesquisar = new JDlgFrbVendedorPesquisar(null,true);
         jDlgFrbVendedorPesquisar.setTelaPai(this);
         jDlgFrbVendedorPesquisar.setVisible(true);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

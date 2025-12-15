@@ -113,8 +113,8 @@ public class JDlgFrbVendasPesquisar extends javax.swing.JDialog {
         if(jTable1.getSelectedRow() == -1){
             Util.mensagem("Largue de ser cabecudo");
         }
-        FrbVenda pedidos =  frbControllerVendas.getBean( jTable1.getSelectedRow() );
-        jDlgFrbVendas.beanView(pedidos);
+        FrbVenda frbVenda =  frbControllerVendas.getBean( jTable1.getSelectedRow() );
+        jDlgFrbVendas.beanView(frbVenda);
         this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 

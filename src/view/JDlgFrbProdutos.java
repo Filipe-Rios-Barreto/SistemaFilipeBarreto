@@ -303,7 +303,7 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
-            jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
+            jTxtFrbDescricao, jBtnExcluir, jTxtFrbPreco, jFmtFrbDataValidade, jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbSabor, jTxtFrbTamanho, jTxtFrbEstoque,
             jTxtFrbDescricao, jTxtFrbPreco, jFmtFrbDataValidade);
@@ -314,7 +314,7 @@ public class JDlgFrbProdutos extends javax.swing.JDialog {
         JDlgFrbProdutosPesquisar jDlgFrbProdutosPesquisar = new JDlgFrbProdutosPesquisar(null,true);
                 jDlgFrbProdutosPesquisar.setTelaPai(this);
         jDlgFrbProdutosPesquisar.setVisible(true);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

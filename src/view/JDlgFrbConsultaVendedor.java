@@ -48,7 +48,7 @@ public class JDlgFrbConsultaVendedor extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel2.setText("Comissão");
+        jLabel2.setText("Comissão maior que");
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {

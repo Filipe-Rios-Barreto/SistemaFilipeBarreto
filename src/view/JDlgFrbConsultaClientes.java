@@ -24,7 +24,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Pesquisar Clientes");
+        setTitle("Consultar Clientes");
 
         frbControllerConsultasClientes = new FrbControllerConsultasClientes();
         List lista = (List) frbClientesDAO.listAll();
@@ -46,7 +46,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
         jBtnOk = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTxtNome = new javax.swing.JTextField();
-        jTxtCpf = new javax.swing.JTextField();
+        jTxtCidade = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jBtnConsultar = new javax.swing.JButton();
 
@@ -79,7 +79,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel2.setText("CPF");
+        jLabel2.setText("Cidade");
 
         jBtnConsultar.setText("Consultar");
         jBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBtnConsultar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -126,7 +126,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBtnConsultar))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,11 +151,11 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {                                              
 
         if ((jTxtNome.getText().isEmpty() == false)
-                && (jTxtCpf.getText().isEmpty() == false)) {
+                && (jTxtCidade.getText().isEmpty() == false)) {
 
-            List lista = (List) frbClientesDAO.listNomeCpf(
+            List lista = (List) frbClientesDAO.listNomeCidade(
                     jTxtNome.getText(),
-                    jTxtCpf.getText()
+                    jTxtCidade.getText()
             );
             frbControllerConsultasClientes.setList(lista);
 
@@ -164,9 +164,9 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
             List lista = (List) frbClientesDAO.listNome(jTxtNome.getText());
             frbControllerConsultasClientes.setList(lista);
 
-        } else if (jTxtCpf.getText().isEmpty() == false) {
+        } else if (jTxtCidade.getText().isEmpty() == false) {
 
-            List lista = (List) frbClientesDAO.listCpf(jTxtCpf.getText());
+            List lista = (List) frbClientesDAO.listCidade(jTxtCidade.getText());
             frbControllerConsultasClientes.setList(lista);
 
         } else {
@@ -183,7 +183,7 @@ public class JDlgFrbConsultaClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTxtCpf;
+    private javax.swing.JTextField jTxtCidade;
     private javax.swing.JTextField jTxtNome;
     // End of variables declaration                   
 }

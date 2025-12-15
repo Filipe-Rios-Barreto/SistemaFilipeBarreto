@@ -478,7 +478,7 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         Util.habilitar(false, jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
                 jTxtFrbBairro, jTxtFrbCidade, jFmtFrbTelefoneCasa, jChbFrbAtivo, jFmtFrbCelular, jTxtFrbSaborFavorito,
-                jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+                jBtnConfirmar, jBtnAlterar, jBtnCancelar, jBtnExcluir);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtFrbCodigo, jTxtFrbNome, jFmtFrbCpf, jFmtFrbDataNascimento,
                 jTxtFrbSexo, jTxtFrbEmail, jFmtFrbRg, jTxtFrbEstado, jFmtFrbCep, jTxtFrbEndereco,
@@ -491,8 +491,8 @@ public class JDlgFrbClientes extends javax.swing.JDialog {
         JDlgFrbClientesPesquisar jDlgFrbClientesPesquisar = new JDlgFrbClientesPesquisar(null,true);
         jDlgFrbClientesPesquisar.setTelaPai(this);
         jDlgFrbClientesPesquisar.setVisible(true);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.habilitar(false, jBtnCancelar, jBtnIncluir);
+        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnPesquisar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir);
         
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
