@@ -424,11 +424,11 @@ public class JDlgFrbVendas extends javax.swing.JDialog {
             frbControllerVendaProdutos.setList(new ArrayList());
             frbControllerVendaProdutos.fireTableDataChanged();
 
-            Util.habilitar(false, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
+        }
+                    Util.habilitar(false, jBtnFrbIncluirProd, jBtnFrbAlterarProd, jBtnFrbExcluirProd, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal, jBtnConfirmar, jBtnAlterar, jBtnCancelar);
             Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
             Util.limpar(jTxtFrbCodigo, jTxtFrbCodigo, jFmtFrbData, jCboFrbClientes, jCboFrbVendedor, jTxtFrbTotal);
 
-        }
     }
 
     /**
